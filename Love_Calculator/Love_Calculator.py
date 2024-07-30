@@ -13,24 +13,26 @@ print('''
  /  ************  \                      /  ************  \\
 --------------------                    --------------------
 ''')
-name1 = input('What is your name? \t')  #
-name2 = input('What is their name? \t')  #
-# 🚨 Don't change the code above 👆
-# Write your code below this line 👇
+# 🚨 References: https://www.asciiart.eu/holiday-and-events/valentine 👆
 
-names = name1 + name2
-T = names.lower().count('t')
-R = names.lower().count('r')
-U = names.lower().count('u')
-E = names.lower().count('e')
-L = names.lower().count('l')
-O = names.lower().count('o')
-V = names.lower().count('v')
+your_name = input('What is your name? \t')  #
+their_name = input('What is their name? \t')  #
+
+combined_name = your_name + their_name
+
+T = combined_name.lower().count('t')
+R = combined_name.lower().count('r')
+U = combined_name.lower().count('u')
+E = combined_name.lower().count('e')
+L = combined_name.lower().count('l')
+O = combined_name.lower().count('o')
+V = combined_name.lower().count('v')
+
 score = int(str(T + R + U + E) + str(L + O + V + E))
 
 if score < 10 or score > 90:
-  print(f"Your score is {score}, you go together like coke and mentos.")
-elif score >= 40 and score <= 50:
-  print(f"Your score is {score}, you are alright together.")
+    print(f"Your score is {score}, you go together like coke and mentos.")
+elif 40 <= score <= 50:
+    print(f"Your score is {score}, you are alright together.")
 else:
-  print(f"Your score is {score}.")
+    print(f"Your score is {score}.")
