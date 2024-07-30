@@ -72,7 +72,9 @@ if user_choice in [0, 1, 2]:
     print(f"GAME HANDLER:\t{player_name} chosen :{hand_gestures[user_choice]}")
     print(f"GAME HANDLER:\tComputer chosen: {hand_gestures[computer_choice]}")
 
-    if user_choice == 0 and computer_choice == 2 or user_choice == 1 and computer_choice == 0 or user_choice == 2 and computer_choice == 1:
+    if (user_choice == 0 and computer_choice == 2
+            or user_choice == 1 and computer_choice == 0
+            or user_choice == 2 and computer_choice == 1):
         user_win = True
 else:
     print(f"\nGAME HANDLER: You need to enter either 0 or 1 or 2 not :{user_choice}")
@@ -82,5 +84,5 @@ if user_win:
 elif user_choice == computer_choice:
     print(f"\nGAME HANDLER: Coincidentally, Both {player_name} and COMPUTER chosen the same.\n\n \t GAME TIED !!")
 else:
-    print(f"\nGAME HANDLER: {player_name} lost the game. \n COMPUTER: Someone told me this '{user_trash_task}'. \n GOOD for trash talk only!")
-
+    print(f"\nGAME HANDLER: {player_name} lost the game. \n COMPUTER: Someone told me this '{user_trash_task}'. \n "
+          f"GOOD for trash talk only!")
