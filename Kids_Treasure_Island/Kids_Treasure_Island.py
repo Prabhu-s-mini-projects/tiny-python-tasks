@@ -26,7 +26,7 @@ chosen_path = input('you\'re at the cross Road. Where do you want to go? \n"left
 if chosen_path.lower() == "left":
     chosen_path = input('\nYou\'ve reached the River side.How do you prefer to proceed?\n"Swim" or "wait" for boat :\t')
     if chosen_path.lower() == "wait":
-        chosen_path = input('\nYou\'ve arrived at the island.There is a house with 3 doors. "READ" "BLUE" "YELLOW"  :\t')
+        chosen_path = input('\nYou\'ve arrived at the island.There is a house with 3 doors. "RED" "BLUE" "YELLOW"  :\t')
         if chosen_path.lower() == 'read':
             print("\nYou're Burned alive.\n\n GAME OVER ~!")
         elif chosen_path.lower() == 'blue':
