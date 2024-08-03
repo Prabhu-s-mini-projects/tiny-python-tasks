@@ -1,11 +1,4 @@
-alphabet = [
-    'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
-    'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
-]
-
-en_or_de = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n").lower()
-message_text = input("Type your message:\n").lower()
-to_shift = int(input("Type the shift number:\n"))
+import db_art_alphabet as db
 
 
 def caesar(text, shift, direction) -> str:
@@ -18,11 +11,28 @@ def caesar(text, shift, direction) -> str:
     else:
         print(f"Type 'encode' to encrypt, type 'decode' to decrypt. not: {direction}")
     for letter in text:
-        cipher_text += alphabet[alphabet.index(letter) + shift if 0 < alphabet.index(letter) + shift < 26 else (alphabet.index(letter) + shift + 26 * over_flow)]
+        if letter in alphabet:
+            cipher_text += alphabet[alphabet.index(letter) + shift if 0 < alphabet.index(letter) + shift < 26 else (alphabet.index(letter) + shift + 26 * over_flow)]
+        else:
+            cipher_text += letter
     return cipher_text
 
 
-print(caesar(message_text,to_shift,en_or_de))
+print(db.logo)
+alphabet = db.alphabet
+
+is_continue = 'yes'
+while is_continue == 'yes':
+    en_or_de = input("\nType 'encode' to encrypt, type 'decode' to decrypt:").lower()
+    message_text = input("Type your message: ").lower()
+    to_shift = int(input("Type the shift number: "))
+
+    if to_shift > 26:
+        to_shift %= 26
+
+    print(caesar(message_text, to_shift, en_or_de))
+    is_continue = input('Want to restart the cipher program:\t').lower()
+
 
 # _____________________________________________________________________________________________________________________
 #
