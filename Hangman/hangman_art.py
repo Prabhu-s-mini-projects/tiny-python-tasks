@@ -65,3 +65,9 @@ logo = '''
                     __/ |                      
                    |___/    '''
 
+lives_based_on_difficulty = {
+    'easy': 7,
+    'medium': 5,
+    'hard': 3
+}
+
