@@ -25,10 +25,15 @@ while BID_window_open:
     add_new_bidder(name, bid_amount)
 
     # Making sure Everyone placed a BID.
-    other_bidders = input("Are there are any other bidders?\tType 'yes' to continue or 'any key' for no ").lower()
+    other_bidders = input("Are there are any other bidders?\tType 'yes' to continue or 'any key' for no\n").lower()
 
     if other_bidders == "yes":
-        os.system('clear')  # clear the screen so there won't see previous person's BID
+        # Set the TERM environment variable
+        os.environ['TERM'] = 'xterm-256color'
+
+        # clear the screen so there won't see previous person's BID
+        os.system('clear')
+
     else:
         BID_window_open = False
 
@@ -45,4 +50,4 @@ for bidder in bidders:
     else:
         pass
 
-print(f"{leading_bidder} WON the with the BID_amount: {max_bid}")
+print(f"{leading_bidder} WON the BID-AUCTION with the BID_amount: {max_bid}")
