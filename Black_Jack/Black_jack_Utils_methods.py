@@ -18,15 +18,15 @@ def show_card(character: int, close_card=False) -> None:
     """Constructing CARD"""
     # Future enhancement convert this to 5X3 matrix
     template_card = [
-        '┌─────────────┐',
-        f'| {character}          |',
-        f'|             |',
-        f'|             |',
-        f'|             |',
-        f'|             |',
-        f'|             |',
-        f'|          {character} |',
-        '└─────────────┘',
+        f"{Db.color_code_map.get('red')}┌─────────────┐",
+        f"| {character}          " + "|" if character > 9 else " |",
+        f"|             |",
+        f"|             |",
+        f"|             |",
+        f"|             |",
+        f"|             |",
+        "|" if character > 9 else "| " + f"          {character} |",
+        f"└─────────────┘{Db.color_code_map.get('reset')}",
     ]
     for segment in template_card:
         print(segment)

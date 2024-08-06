@@ -11,22 +11,22 @@ logo = """
 """
 
 color_code_map = {
-    "\033[91m": "Red",
-    "\033[92m": "Green",
-    "\033[0m": "Reset"
+    "red": "\033[91m",
+    "green": "\033[92m",
+    "reset": "\033[0m"
 }
 
 # Close card representation
 close_card = [
-    f"{color_code_map.get('Green')}┌─────────────┐{color_code_map.get('Reset')}",
-    f"{color_code_map.get('Green')}|░░░░░░░░░░░░░|{color_code_map.get('Reset')}",
-    f"{color_code_map.get('Green')}|░░░░░░░░░░░░░|{color_code_map.get('Reset')}",
-    f"{color_code_map.get('Green')}|░░░░░░░░░░░░░|{color_code_map.get('Reset')}",
-    f"{color_code_map.get('Green')}|░░░░░░░░░░░░░|{color_code_map.get('Reset')}",
-    f"{color_code_map.get('Green')}|░░░░░░░░░░░░░|{color_code_map.get('Reset')}",
-    f"{color_code_map.get('Green')}|░░░░░░░░░░░░░|{color_code_map.get('Reset')}",
-    f"{color_code_map.get('Green')}|░░░░░░░░░░░░░|{color_code_map.get('Reset')}",
-    f"{color_code_map.get('Green')}└─────────────┘{color_code_map.get('Reset')}",
+    f"{color_code_map.get('green')}┌─────────────┐{color_code_map.get('reset')}",
+    f"{color_code_map.get('green')}|░░░░░░░░░░░░░|{color_code_map.get('reset')}",
+    f"{color_code_map.get('green')}|░░░░░░░░░░░░░|{color_code_map.get('reset')}",
+    f"{color_code_map.get('green')}|░░░░░░░░░░░░░|{color_code_map.get('reset')}",
+    f"{color_code_map.get('green')}|░░░░░░░░░░░░░|{color_code_map.get('reset')}",
+    f"{color_code_map.get('green')}|░░░░░░░░░░░░░|{color_code_map.get('reset')}",
+    f"{color_code_map.get('green')}|░░░░░░░░░░░░░|{color_code_map.get('reset')}",
+    f"{color_code_map.get('green')}|░░░░░░░░░░░░░|{color_code_map.get('reset')}",
+    f"{color_code_map.get('green')}└─────────────┘{color_code_map.get('reset')}",
 ]
 
 # Types of cards
