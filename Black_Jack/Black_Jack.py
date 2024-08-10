@@ -32,6 +32,36 @@ import Black_jack_Utils_methods as Ctrl
 print(Db.logo)
 print("Welcome to BLACK JACK Game")
 
+
+# Hit or stand
+def decide_winner(player_cards : list, dealer_cards: list) -> None:
+    dealer_cards_count = sum(dealer_cards)
+    while dealer_cards_count > 17:
+        dealer_cards.append(Ctrl.get_a_card())
+    if dealer_cards_count > 21:
+        print("Player Wins")
+    else:
+        if player_card_count > dealer_cards_count:
+            print("Player Wins")
+        elif player_card_count == dealer_cards_count:
+            print("GAME TIED")
+        else:
+            print("Player Lose")
+
+
+def is_player_count(player_cards:list) -> None:
+    player_card_count = sum(player_cards)
+    if player_card_count > 21:
+        if 11 in player_cards:
+            count_ace_as_11 = sum(player_cards)
+            position_11_in_playercards = player_cards.index(11)
+            player_cards[position_11_in_playercards] = 1
+            count_ace_as_1 = sum(player_cards)
+            if count_ace_as_1 > 21:
+                print("Player Lose")
+        else:
+            print("Players lose")
+
 continue_play = 'y'
 while continue_play == 'y':
 
@@ -53,28 +83,20 @@ while continue_play == 'y':
     Ctrl.show_card(dealer_cards[1], close_card=True)  # For Now, hardcoding the value to be 1
 
     # Check whether dealer or player got blackjack.
-    player_card_count = sum(player_cards)
-    dealer_card_count = sum(dealer_cards)
-    is_player_has_black_jack = Ctrl.is_black_jack(dealer_cards)
-    is_dealer_has_black_jack = Ctrl.is_black_jack(player_cards)
+    is_black_jack, winner_name = Ctrl.is_black_jack(dealer_cards, player_cards)
 
-    if is_player_has_black_jack or is_dealer_has_black_jack:
-        if is_dealer_has_black_jack and is_player_has_black_jack:
-            print("GAME TIED")
-        elif is_player_has_black_jack:
-            print("Player WINS")
-        else:
-            print("Dealer WINS")
+    if is_black_jack:
+        print(f"\n {winner_name}")
     else:
-
-        hit_or_stand = input("'Hit' or 'STAND'").lower()
-        while 'hit' or 'stand' not in hit_or_stand:
-            print(f"please entire 'hit or 'stand not :{hit_or_stand}")
-            hit_or_stand = input("'Hit' or 'STAND'").lower()
-
-        if hit_or_stand == 'hit':
-            player_cards.append(Ctrl.get_a_card())
-            if Ctrl.is_black_jack(player_cards):
-                pass
+        player_card_count = sum(player_cards)
+        if player_card_count > 21:
+            is_player_count(player_cards)
+        else:
+            get_another_card = input("\n Do you need another card: \t").lower()
+            if get_another_card == 'yes':
+                player_cards.append(Ctrl.get_a_card())
+                pass  # pass it back to line 86
+            else:
+                decide_winner(player_cards, dealer_cards)
 
     continue_play = 'N'
