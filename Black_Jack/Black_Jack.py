@@ -1,10 +1,3 @@
-# ------------------ Blackjack Project ---------------------------
-
-# Difficulty Normal 😎: Use all Hints below to complete the project.
-# Difficulty Hard 🤔: Use only Hints 1, 2, 3 to complete the project.
-# Difficulty Extra Hard 😭: Only use Hints 1 & 2 to complete the project.
-# Difficulty Expert 🤯: Only use Hint 1 to complete the project.
-
 # ------------------ Blackjack House Rules ---------------------------
 
 # The deck is unlimited in size.
@@ -47,11 +40,11 @@ print("Welcome to BLACK JACK Game")
 
 def decide_winner(player_score_count: int, dealer_score_count: int) -> str:
     if player_score_count > dealer_score_count:
-        return "Player Wins"
+        return "Player Wins 😎:"
     elif player_score_count == dealer_score_count:
-        return "Game TIED"
+        return "🤯 Game TIED 🤔"
     else:
-        return "Player Lose"
+        return "Player Lose 😭"
 
 
 # Task 1: Add a loop that will ask whether User/Player wants to play another game.
@@ -103,7 +96,7 @@ while another_game == 'y':
                     player_cards_count = sum(player_cards)
                     print(f"Player cards are ;{player_cards} --> score:{player_cards_count}")
                 else:
-                    print('Player Lose')
+                    print("Player Lose 😭")
                     game_over = True
                     break
 
@@ -124,7 +117,7 @@ while another_game == 'y':
                     dealer_cards_count = sum(dealer_cards)
                     print(f"Dealer cards are ;{dealer_cards} --> score:{dealer_cards_count}")
                 else:
-                    print('Player Wins')
+                    print("Player Wins 😎:")
                     game_over = True
                     break
 

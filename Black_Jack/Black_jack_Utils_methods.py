@@ -18,11 +18,11 @@ def is_black_jack(player_cards: list, dealer_cards: list) -> (bool, str):
     :return:
     """
     if [10, 11] in dealer_cards and [10, 11] in player_cards:
-        return True, "Game TIED"
+        return True, "🤯 Game TIED 🤔"
     elif [10, 11] in dealer_cards:
-        return True, "Dealer WINS : You Lose"
+        return True, "Player Lose 😭"
     elif [11, 10] in player_cards:
-        return True, "Player WINS"
+        return True, "Player Wins 😎:"
     else:
         return False, None
 
