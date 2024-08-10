@@ -26,77 +26,110 @@
 
 # Loading the game
 import Black_Jack_Database as Db
-import Black_jack_Utils_methods as Ctrl
+import Black_jack_Utils_methods as Controller
 
 # Welcoming the player to the game.
 print(Db.logo)
 print("Welcome to BLACK JACK Game")
 
 
-# Hit or stand
-def decide_winner(player_cards : list, dealer_cards: list) -> None:
-    dealer_cards_count = sum(dealer_cards)
-    while dealer_cards_count > 17:
-        dealer_cards.append(Ctrl.get_a_card())
-    if dealer_cards_count > 21:
-        print("Player Wins")
+# Task 1: Add a loop that will ask whether User/Player wants to play another game.
+# Task 2: Give 2 cards to Dealer and player.
+# Task 3: Check whether user or dealer has Black Jack. if yes game. print the winner and game over.
+# Task 4: Ask user whether he needs another card. (HIT or STAND)
+#         If the user has card count > 21 Player lose
+#
+# Task 5: Count Dealer's card
+#         If count is less than 17 keep hitting the card for dealer.
+#         If count goes above 21, player wins
+# Task 6: Decide the winner
+
+
+def decide_winner(player_score_count: int, dealer_score_count: int) -> str:
+    if player_score_count > dealer_score_count:
+        return "Player Wins"
+    elif player_score_count == dealer_score_count:
+        return "Game TIED"
     else:
-        if player_card_count > dealer_cards_count:
-            print("Player Wins")
-        elif player_card_count == dealer_cards_count:
-            print("GAME TIED")
-        else:
-            print("Player Lose")
+        return "Player Lose"
 
 
-def is_player_count(player_cards:list) -> None:
-    player_card_count = sum(player_cards)
-    if player_card_count > 21:
-        if 11 in player_cards:
-            count_ace_as_11 = sum(player_cards)
-            position_11_in_playercards = player_cards.index(11)
-            player_cards[position_11_in_playercards] = 1
-            count_ace_as_1 = sum(player_cards)
-            if count_ace_as_1 > 21:
-                print("Player Lose")
-        else:
-            print("Players lose")
+# Task 1: Add a loop that will ask whether User/Player wants to play another game.
+another_game = 'y'
+while another_game == 'y':
 
-continue_play = 'y'
-while continue_play == 'y':
-
-    dealer_cards = []
+    # Local variables.
     player_cards = []
+    dealer_cards = []
+    player_cards_count = 0
+    dealer_cards_count = 0.
+    is_black_jack = False
+    game_over = False
 
-    # Dealer and player gets 2 card.
+    # Task 2: Dealer and player gets 2 card.
     for card in range(2):
-        dealer_cards.append(Ctrl.get_a_card())
-        player_cards.append(Ctrl.get_a_card())
+        dealer_cards.append(Controller.get_another_card())
+        player_cards.append(Controller.get_another_card())
 
-    # Show player's cards
-    print(f"Here is Player's card: {player_cards}")
-    for card in player_cards:
-        Ctrl.show_card(card)
+    # Calculating the score
+    player_cards_count = sum(player_cards)
+    dealer_cards_count = sum(dealer_cards)
 
-    # Show dealer's card
-    print(f"Here is Dealer's Card: [ * , [{dealer_cards[1]}]")
-    Ctrl.show_card(dealer_cards[1], close_card=True)  # For Now, hardcoding the value to be 1
+    print(f"Player cards are ;{player_cards} --> score:{player_cards_count}")
+    print(f"Dealer cards are ;{dealer_cards} --> score:{dealer_cards_count}")
 
-    # Check whether dealer or player got blackjack.
-    is_black_jack, winner_name = Ctrl.is_black_jack(dealer_cards, player_cards)
+    # Task 3: Check whether user or dealer has Black Jack.
+    is_black_jack, winner = Controller.is_black_jack(player_cards, dealer_cards)
 
     if is_black_jack:
-        print(f"\n {winner_name}")
+        # if yes game. print the winner and game over.
+        print(f"\n {winner}")
+        game_over = True
     else:
-        player_card_count = sum(player_cards)
-        if player_card_count > 21:
-            is_player_count(player_cards)
-        else:
-            get_another_card = input("\n Do you need another card: \t").lower()
-            if get_another_card == 'yes':
-                player_cards.append(Ctrl.get_a_card())
-                pass  # pass it back to line 86
-            else:
-                decide_winner(player_cards, dealer_cards)
+        # Task 4: Ask user whether he needs another card. (HIT or STAND)
+        hit_or_stand = input("\t'HIT' or 'STAND' :\t").lower()
 
-    continue_play = 'N'
+        # Keep it in a loop until user want to stand
+        while hit_or_stand == 'hit':
+            player_cards.append(Controller.get_another_card())
+            player_cards_count = sum(player_cards)
+
+            print(f"Player cards are ;{player_cards} --> score:{player_cards_count}")
+            # If the user has card count > 21 Player lose
+            if player_cards_count > 21:
+                if 11 in player_cards:
+                    player_cards.remove(11)
+                    player_cards.append(1)
+                    player_cards_count = sum(player_cards)
+                    print(f"Player cards are ;{player_cards} --> score:{player_cards_count}")
+                else:
+                    print('Player Lose')
+                    game_over = True
+                    break
+
+            hit_or_stand = input("\t'HIT' or 'STAND' :\t").lower()
+
+        # Task 5: Count Dealer's card.
+        while 17 > dealer_cards_count and not game_over:
+            # If count is less than 17 keep hitting the card for dealer.
+            dealer_cards.append(Controller.get_another_card())
+            dealer_cards_count = sum(dealer_cards)
+
+            print(f"Dealer cards are ;{dealer_cards} --> score:{dealer_cards_count}")
+            # If count goes above 21, player wins
+            if dealer_cards_count > 21:
+                if 11 in dealer_cards:
+                    dealer_cards.remove(11)
+                    dealer_cards.append(1)
+                    dealer_cards_count = sum(dealer_cards)
+                    print(f"Dealer cards are ;{dealer_cards} --> score:{dealer_cards_count}")
+                else:
+                    print('Player Wins')
+                    game_over = True
+                    break
+
+        # Decide winner
+        if not game_over:
+            print(decide_winner(player_cards_count, dealer_cards_count))
+
+        another_game = input("Do you want to play another came :\t 'y' for Yes or 'any key' for No\n").lower()

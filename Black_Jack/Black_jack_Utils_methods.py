@@ -2,7 +2,7 @@ import random
 import Black_Jack_Database as Db
 
 
-def get_a_card() -> int:
+def get_another_card() -> int:
     """
     TO get a random card form deck.
     :return:
@@ -10,21 +10,18 @@ def get_a_card() -> int:
     return random.choice(Db.cards)
 
 
-def is_black_jack(player_cards:list, dealer_cards=None) -> (bool, str):
+def is_black_jack(player_cards: list, dealer_cards: list) -> (bool, str):
     """
     Check whether Both Ace and 10 is part of Cards()
     :param dealer_cards:
     :param player_cards:
     :return:
     """
-    if dealer_cards is None:
-        dealer_cards = []
-
     if [10, 11] in dealer_cards and [10, 11] in player_cards:
         return True, "Game TIED"
     elif [10, 11] in dealer_cards:
         return True, "Dealer WINS : You Lose"
-    elif (11 and 10) in player_cards:
+    elif [11, 10] in player_cards:
         return True, "Player WINS"
     else:
         return False, None
@@ -46,7 +43,7 @@ def show_card(character: int, close_card=False) -> None:
         f"|             |",
         f"|             |",
         f"|             |",
-        ("|" if character > 9 else "| " ) + f"          {character} |",
+        ("|" if character > 9 else "| ") + f"          {character} |",
         f"└─────────────┘{Db.color_code_map.get('reset')}",
     ]
 
