@@ -13,15 +13,15 @@ attempts = Db.number_of_attempts.get(difficulty_level)
 # Computer will decide the number
 number = random.choice(range(1, 100))
 
-is_user_found = False # To keep track whether user found the value.
+is_user_found = False  # To keep track whether user found the value.
 while attempts > 0 and not is_user_found:
 
     guessed_number = int(input("\nYou Guess the Number:\t"))
     if guessed_number < number:
-        print("Too low \n Guess again")
+        print("Too low \nGuess again")
         attempts -= 1
     elif guessed_number > number:
-        print("Too High \n Guess again")
+        print("Too High \nGuess again")
         attempts -= 1
     else:
         print(f"You have found the number : {number}")
