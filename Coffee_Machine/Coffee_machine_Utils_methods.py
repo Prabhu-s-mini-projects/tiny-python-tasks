@@ -10,7 +10,7 @@ def load_logo() -> None:
     print(Db.LOGO)
 
 
-# # Todo:3
+
 def report() -> None:
     """
      To display current quantity of Resources.
@@ -25,7 +25,6 @@ def is_valid(user_ask):
     return user_ask in menu or user_ask in ['report', 'off']
 
 
-# # Todo:4
 def is_resources_sufficient(order: dict) -> bool:
     """
     To check whether we have a sufficient resources to make a respective coffee.
@@ -39,7 +38,6 @@ def is_resources_sufficient(order: dict) -> bool:
     return True
 
 
-# # Todo:5
 def process_coins() -> float:
     """
     calculate the amount based on the pennies , Dimes, Quarters & nickels
@@ -53,7 +51,6 @@ def process_coins() -> float:
     return total
 
 
-# # Todo:6
 def is_transaction_successful(order_amount, payment) -> bool:
     """
     Checks whether inserted coins is sufficient for the Order cost
@@ -66,7 +63,6 @@ def is_transaction_successful(order_amount, payment) -> bool:
     return False
 
 
-# # Todo:7
 def make_order(order):
     """
     # Make Coffee
@@ -113,7 +109,6 @@ def perform_task(user_ask) -> bool:
 
     else:
         # Indicates all possibility are check. User_ask is to OFF
-        # # Todo:2
         # Create a method to exit the loop and update machine_state as off
         return False
 

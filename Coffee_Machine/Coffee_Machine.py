@@ -2,7 +2,6 @@ import Coffee_machine_Utils_methods as Machine
 
 Machine.load_logo()
 
-# # Todo:1
 # 1. Get user input in a loop with a condition machine state on.
 machine_ON = True
 while machine_ON:
