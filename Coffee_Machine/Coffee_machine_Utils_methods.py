@@ -56,7 +56,7 @@ def is_transaction_successful(order_amount, payment) -> bool:
     Checks whether inserted coins is sufficient for the Order cost
     """
     if payment > order_amount:
-        print(f"here is the change : {payment-order_amount}")
+        print(f"here is the change : {(payment-order_amount):.2f}")
         return True
     elif payment == order_amount:
         return True
