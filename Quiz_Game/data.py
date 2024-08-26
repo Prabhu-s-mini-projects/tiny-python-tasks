@@ -1,4 +1,3 @@
-from Quiz_Game.Quiz_Game import question_bank
 
 question_data = [
     {"text": "A slug's blood is green.", "answer": "True"},
