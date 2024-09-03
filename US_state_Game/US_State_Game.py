@@ -56,7 +56,7 @@ while score < 50:
         # Updating it in the map
         update_state_name(state)
 
-        #added in to guessed state list
+        # Added in to guessed state list
         guessed_states.append(state.state.item())
 
     answer = game_window.textinput(title=f"{score}/50 state", prompt="Whats the another state name?").title()
