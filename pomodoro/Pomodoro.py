@@ -29,8 +29,12 @@ def on_click_start()-> None:
 def count_down(count:int)-> None:
     mint = math.floor(count / 60)
     sec = math.floor(count % 60)
+
+    # To change value of a item inside a canvas
     canvas.itemconfig(timer_text,text = f"{mint}:{sec}")
     if count > 0:
+
+        # Using instead of while loop.
         window.after(1000,count_down,count-1)
 
 # ---------------------------- UI SETUP ------------------------------- #
