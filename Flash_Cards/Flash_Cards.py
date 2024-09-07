@@ -2,6 +2,7 @@
 import random
 from tkinter import *
 import pandas
+from pandas.core.interchange.dataframe_protocol import DataFrame
 
 # Internal modules
 # TBD
@@ -20,8 +21,11 @@ current_card = None
 flip_timer = None
 
 # ---------------------------- loading data from csv ------------------------------- #
+try:
+    words_dataFrame = pandas.read_csv("Database/words_to_learn.csv")
+except FileNotFoundError:
+    words_dataFrame = pandas.read_csv("Database/french_words.csv")
 
-words_dataFrame = pandas.read_csv("Database/french_words.csv")
 #mapping_of_words = { row.French : row.English for index, row in words_dataFrame.iterrows()}
 
 dictionary_of_words = words_dataFrame.to_dict(orient="records")
@@ -64,6 +68,20 @@ def next_card()-> None:
     # cancel and restart the timer
     window.after_cancel(flip_timer)
 
+    if current_card:
+
+        #global  current_card
+        # remove the current word
+        dictionary_of_words.remove(current_card)
+
+        # save it to the new file
+        # updated_dict = {"French":"English"}
+        # updated_dict.update({item.get("French"):item.get("English") for item in dictionary_of_words})
+
+        # Updated dataframe
+        updated_dataframe = pandas.DataFrame.from_records(dictionary_of_words)
+        updated_dataframe.to_csv("Database/words_to_learn.csv",index=False)
+
     # fetching the random card
     current_card = random.choice(dictionary_of_words)
     french_word = current_card.get("French")
@@ -75,6 +93,7 @@ def next_card()-> None:
 
     # starting the timer
     flip_timer = window.after(3000, func=flip_card)
+
 
 def flip_card()-> None:
     global current_card
