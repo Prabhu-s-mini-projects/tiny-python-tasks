@@ -56,9 +56,24 @@ Rules:
   - https://docs.python.org/3/library/smtplib.html
 - datetime (works with date and time)
   - https://docs.python.org/3/library/datetime.html
-
-
+- requests
+  - https://docs.python-requests.org/en/latest/
+  - HTTP status codes https://www.webfx.com/web-development/glossary/http-status-codes/
+  
 # Services:
 
 To run a python code to run on cloud services for free
     refer: https://www.pythonanywhere.com
+
+# APIs
+
+- International Space Station Current Location :http://open-notify.org/Open-Notify-API/ISS-Location-Now/
+  - API endpoint :http://api.open-notify.org/iss-now.json
+
+# Extension for browser
+
+- JSON VIEWER PRO
+  - https://chromewebstore.google.com/detail/json-viewer/gbmdgpbipfallnflgajpaliibnhdgobh
+
+# MISC reference
+- https://www.latlong.net/Show-Latitude-Longitude.html
