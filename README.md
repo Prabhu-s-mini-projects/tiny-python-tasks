@@ -52,9 +52,13 @@ Rules:
 - re (for regex string validation)
   - https://www.w3schools.com/python/python_regex.asp
   - https://regex101.com
+- SMTP ( to send mail)
+  - https://docs.python.org/3/library/smtplib.html
+- datetime (works with date and time)
+  - https://docs.python.org/3/library/datetime.html
 
 
+# Services:
 
-# References:
-
-Tk related documentation reference line
+To run a python code to run on cloud services for free
+    refer: https://www.pythonanywhere.com
