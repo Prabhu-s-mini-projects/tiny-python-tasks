@@ -2,14 +2,14 @@
 Contains simple python programs
 
 
-# Lamda
+## Lamda
 Syntax: lamda param : action(param)
 Eg: lamda a,b : a + b
 Eg: lamda mark : f"pass with {mark}" if mark > 50
 Rules:
     - Only use them once.(onetime annoys function)
 
-# List comprehension
+## List comprehension
 
 Syntax: list = [item for item in items if condition]
 
@@ -26,7 +26,7 @@ Rules:
     - Condition is optional.
     - You can perform an operation on the item    
 
-# Dictionary comprehension
+## Dictionary comprehension
 
 Syntax: dict = {key:value for key, value in dict.items() if condition}
 
@@ -38,42 +38,42 @@ Rules:
     - Condition is optional.
     - You can perform an operation on the key and value    
 
-# Modules / Packages
+## Modules / Packages
 
-- Pandas (To handle table manipulation EXCEL, CSV, SQL database)
-  - https://pandas.pydata.org
-- pretty table (display a table)
-  - https://pypi.org/project/prettytable/
-- Turtle (small animations, graphics and games)
-  - https://docs.python.org/3/library/turtle.html
-- Tkinter (GUI based)
-  - https://docs.python.org/3/library/tkinter.html#the-packer
-  - http://tcl.tk/man/tcl8.6/TkCmd/pack.htm
-- re (for regex string validation)
-  - https://www.w3schools.com/python/python_regex.asp
-  - https://regex101.com
+- [Pandas](https://pandas.pydata.org)
+  - To handle table manipulation EXCEL, CSV, SQL database 
+- [Pretty Table ](https://pypi.org/project/prettytable/)
+  - Display a table in Console in prettier format 
+- [Turtle](https://docs.python.org/3/library/turtle.html)
+  - small animations, graphics and games
+- [Tkinter](https://docs.python.org/3/library/tkinter.html#the-packer)
+  - [GUI based](http://tcl.tk/man/tcl8.6/TkCmd/pack.htm)
+- [re](https://www.w3schools.com/python/python_regex.asp)
+  - for [regex string validation](https://regex101.com)
 - SMTP ( to send mail)
   - https://docs.python.org/3/library/smtplib.html
-- datetime (works with date and time)
-  - https://docs.python.org/3/library/datetime.html
-- requests
-  - https://docs.python-requests.org/en/latest/
-  - HTTP status codes https://www.webfx.com/web-development/glossary/http-status-codes/
+- [datetime](https://docs.python.org/3/library/datetime.html) 
+  - works with date and time.
+- [requests](https://docs.python-requests.org/en/latest/)
+  - [HTTP status codes ](https://www.webfx.com/web-development/glossary/http-status-codes/)
+- HTML
+  - to unpack a values from json files
   
-# Services:
+## Services:
 
 To run a python code to run on cloud services for free
     refer: https://www.pythonanywhere.com
 
-# APIs
+## APIs
 
-- International Space Station Current Location :http://open-notify.org/Open-Notify-API/ISS-Location-Now/
-  - API endpoint :http://api.open-notify.org/iss-now.json
+- [International Space Station Current Location ](http://open-notify.org/Open-Notify-API/ISS-Location-Now/)
+  - Eg [API endpoint:http://api.open-notify.org/iss-now.json]
 
-# Extension for browser
+## Extension for browser
 
 - JSON VIEWER PRO
-  - https://chromewebstore.google.com/detail/json-viewer/gbmdgpbipfallnflgajpaliibnhdgobh
+  - [Chrome Extension](https://chromewebstore.google.com/detail/json-viewer/gbmdgpbipfallnflgajpaliibnhdgobh)
 
-# MISC reference
-- https://www.latlong.net/Show-Latitude-Longitude.html
+## MISC reference
+- [Find your latitude and longitude](https://www.latlong.net/Show-Latitude-Longitude.html)
+- [HTML Entities](https://www.w3schools.com/html/html_entities.asp)
