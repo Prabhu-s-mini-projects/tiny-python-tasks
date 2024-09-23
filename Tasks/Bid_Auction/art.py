@@ -1,4 +1,5 @@
-logo = '''
+""" Database that contains LOGO for bid_action """
+LOGO = r'''
                          ___________
                          \         /
                           )_______(
