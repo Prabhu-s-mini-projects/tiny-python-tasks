@@ -1,12 +1,12 @@
 # Tiny python tasks
 
-## What 
+## What ?
 TBD
 
 ### Table of Contents
 
-## How
+## How ?
 TBD
 
-## Why
+## Why ?
 TBD
