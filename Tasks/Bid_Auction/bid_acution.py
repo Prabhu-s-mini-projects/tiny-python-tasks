@@ -64,5 +64,5 @@ def main()-> None:
 
     print(f"{leading_bidder} WON the BID-AUCTION with the BID_amount: {max_bid}")
 
-if "__name__" == "__main__":
+if __name__ == "__main__":
     main()
