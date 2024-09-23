@@ -24,6 +24,7 @@ def add_new_bidder(bidder_name, bidders_amount):
     bidders.append(new_bidder)
 
 def main()-> None:
+    """ Starting point of a program """
     bid_window_open:bool = True
     while bid_window_open:
         # Get Bidder Information
