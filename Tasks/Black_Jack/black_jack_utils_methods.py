@@ -1,5 +1,7 @@
+""" Contains the utils methods needed  for the black jack game"""
+
 import random
-import Black_Jack_Database as Db
+import black_jack_database as Db
 
 
 def get_another_card() -> int:
@@ -7,7 +9,7 @@ def get_another_card() -> int:
     TO get a random card form deck.
     :return:
     """
-    return random.choice(Db.cards)
+    return random.choice(Db.CARDS)
 
 
 def is_black_jack(player_cards: list, dealer_cards: list) -> (bool, str):
@@ -36,20 +38,20 @@ def show_card(character: int, close_card=False) -> None:
     """
     # Future enhancement convert this to 5X3 matrix
     template_card = [
-        f"{Db.color_code_map.get('red')}┌─────────────┐",
+        f"{Db.COLOR_CODE_MAP.get('red')}┌─────────────┐",
         f"| {character}          " + ("|" if character > 9 else " |"),
-        f"|             |",
-        f"|             |",
-        f"|             |",
-        f"|             |",
-        f"|             |",
+        "|             |",
+        "|             |",
+        "|             |",
+        "|             |",
+        "|             |",
         ("|" if character > 9 else "| ") + f"          {character} |",
-        f"└─────────────┘{Db.color_code_map.get('reset')}",
+        f"└─────────────┘{Db.COLOR_CODE_MAP.get('reset')}",
     ]
 
     for segment in template_card:
         print(segment)
 
     if close_card:
-        for segment in Db.close_card:
+        for segment in Db.CLOSE_CARD:
             print(segment)
