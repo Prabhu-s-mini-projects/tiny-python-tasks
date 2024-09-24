@@ -21,8 +21,8 @@
     and the player's bet is returned.
 """
 # Loading the game
-import black_jack_database as Db
-import black_jack_utils_methods as Controller
+import black_jack_database as db
+import black_jack_utils_methods as controller
 
 def decide_winner(player_score_count: int, dealer_score_count: int) -> str:
     """ Decides the winner based on the rules"""
@@ -37,7 +37,8 @@ def main()-> None:
     """
     # Task 1: Add a loop that will ask whether User/Player wants to play another game.
     # Task 2: Give 2 cards to Dealer and player.
-    # Task 3: Check whether user or dealer has Black Jack. if yes game. print the winner and game over.
+    # Task 3: Check whether user or dealer has Black Jack. if yes game.
+              print the winner and game over.
     # Task 4: Ask user whether he needs another card. (HIT or STAND)
     #         If the user has card count > 21 Player lose
     #
@@ -48,7 +49,7 @@ def main()-> None:
     :return:
     """
     # Welcoming the player to the game.
-    print(Db.LOGO)
+    print(db.LOGO)
     print("Welcome to BLACK JACK Game")
 
     # Task 1: Add a loop that will ask whether User/Player wants to play another game.
@@ -58,15 +59,15 @@ def main()-> None:
         # Local variables.
         player_cards = []
         dealer_cards = []
-        player_cards_count = 0
-        dealer_cards_count = 0.
-        is_black_jack = False
+        # player_cards_count = 0
+        # dealer_cards_count = 0.
+        # is_black_jack = False
         game_over = False
 
         # Task 2: Dealer and player gets 2 card.
         for card in range(2):
-            dealer_cards.append(Controller.get_another_card())
-            player_cards.append(Controller.get_another_card())
+            dealer_cards.append(controller.get_another_card())
+            player_cards.append(controller.get_another_card())
 
         # Calculating the score
         player_cards_count = sum(player_cards)
@@ -76,7 +77,7 @@ def main()-> None:
         print(f"Dealer cards are ;{dealer_cards} --> score:{dealer_cards_count}")
 
         # Task 3: Check whether user or dealer has Black Jack.
-        is_black_jack, winner = Controller.is_black_jack(player_cards, dealer_cards)
+        is_black_jack, winner = controller.is_black_jack(player_cards, dealer_cards)
 
         if is_black_jack:
             # if yes game. print the winner and game over.
@@ -88,7 +89,7 @@ def main()-> None:
 
             # Keep it in a loop until user want to stand
             while hit_or_stand == 'hit':
-                player_cards.append(Controller.get_another_card())
+                player_cards.append(controller.get_another_card())
                 player_cards_count = sum(player_cards)
 
                 print(f"Player cards are ;{player_cards} --> score:{player_cards_count}")
@@ -109,7 +110,7 @@ def main()-> None:
             # Task 5: Count Dealer's card.
             while 17 > dealer_cards_count and not game_over:
                 # If count is less than 17 keep hitting the card for dealer.
-                dealer_cards.append(Controller.get_another_card())
+                dealer_cards.append(controller.get_another_card())
                 dealer_cards_count = sum(dealer_cards)
 
                 print(f"Dealer cards are ;{dealer_cards} --> score:{dealer_cards_count}")
@@ -129,7 +130,8 @@ def main()-> None:
             if not game_over:
                 print(decide_winner(player_cards_count, dealer_cards_count))
 
-            another_game = input("Do you want to play another came :\t 'y' for Yes or 'any key' for No\n").lower()
+            another_game = input("Do you want to play another came :\t"
+                                 " 'y' for Yes or 'any key' for No\n").lower()
 
 if __name__ == "__main__":
     main()
