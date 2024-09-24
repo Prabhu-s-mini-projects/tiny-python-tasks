@@ -1,4 +1,4 @@
-""" View or Main entry of Quizzler application"""
+""" View or Main entry of Quizzer application"""
 from ui import QuizInterface
 from question_model import Question
 # from data import QUESTION_DATA
