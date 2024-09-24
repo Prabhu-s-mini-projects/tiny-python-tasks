@@ -1,7 +1,7 @@
 """ View or Main entry of Quizzler application"""
 from ui import QuizInterface
 from question_model import Question
-from data import QUESTION_DATA
+# from data import QUESTION_DATA
 from quiz_brain import QuizBrain
 import  requests
 

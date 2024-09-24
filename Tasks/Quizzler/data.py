@@ -35,7 +35,9 @@ QUESTION_DATA = [
         "category": "Science: Computers",
         "type": "boolean",
         "difficulty": "medium",
-        "question": "All program codes have to be compiled into an executable file in order to be run. This file can then be executed on any machine.",
+        "question": "All program codes have to be compiled "
+                    "into an executable file in order to be run."
+                    " This file can then be executed on any machine.",
         "correct_answer": "False",
         "incorrect_answers": [
             "True"
@@ -55,7 +57,8 @@ QUESTION_DATA = [
         "category": "Science: Computers",
         "type": "boolean",
         "difficulty": "easy",
-        "question": "The programming language 'Python' is based off a modified version of 'JavaScript'",
+        "question": "The programming language 'Python' "
+                    "is based off a modified version of 'JavaScript'",
         "correct_answer": "False",
         "incorrect_answers": [
             "True"
@@ -85,7 +88,8 @@ QUESTION_DATA = [
         "category": "Science: Computers",
         "type": "boolean",
         "difficulty": "easy",
-        "question": "In most programming languages, the operator ++ is equivalent to the statement '+= 1'.",
+        "question": "In most programming languages, "
+                    "the operator ++ is equivalent to the statement '+= 1'.",
         "correct_answer": "True",
         "incorrect_answers": [
             "False"
@@ -95,7 +99,8 @@ QUESTION_DATA = [
         "category": "Science: Computers",
         "type": "boolean",
         "difficulty": "hard",
-        "question": "The IBM PC used an Intel 8008 microprocessor clocked at 4.77 MHz and 8 kilobytes of memory.",
+        "question": "The IBM PC used an Intel 8008 microprocessor "
+                    "clocked at 4.77 MHz and 8 kilobytes of memory.",
         "correct_answer": "False",
         "incorrect_answers": [
             "True"

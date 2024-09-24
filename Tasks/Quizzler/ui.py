@@ -1,5 +1,7 @@
+"""Contains methods and class that are necessary for UI of Quizzler"""
+
 # Dependencies
-from tkinter import *
+from tkinter import Tk,Label,Canvas,Button,PhotoImage
 
 from quiz_brain import QuizBrain
 
@@ -23,7 +25,10 @@ class QuizInterface:
         self.canvas = Canvas(width=300, height=250, bg="white", highlightthickness=0)
 
         # Creating Label
-        self.question_text = self.canvas.create_text(150, 100,width=280, text="Some question_text", fill='black', font=TITLE_FONT)
+        self.question_text = self.canvas.create_text(
+            150, 100,
+            width=280, text="Some question_text",
+            fill='black', font=TITLE_FONT)
 
 
         # Positioning the canvas
@@ -41,7 +46,8 @@ class QuizInterface:
         self.wrong_button.grid(row=2, column=1)
 
         # Creating timer Logo
-        self.score_label = Label(text="Score: 0", font=Score_FONT,  bg=THEME_COLOR, highlightthickness=0)
+        self.score_label = Label(text="Score: 0", font=Score_FONT,
+                                 bg=THEME_COLOR, highlightthickness=0)
         self.score_label.grid(row=0, column=1)
 
         self.next_card()
@@ -61,7 +67,7 @@ class QuizInterface:
             self.canvas.itemconfig(self.question_text, text=f"{q_text}", fill="black")
         else:
 
-            self.canvas.itemconfig(self.question_text, text=f"Quiz Completed", fill="black")
+            self.canvas.itemconfig(self.question_text, text="Quiz Completed", fill="black")
 
             self.right_button.config(state="disabled")
             self.wrong_button.config(state="disabled")
