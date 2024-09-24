@@ -1,13 +1,16 @@
-import Coffee_Machine_Database as Db
+""" Contains the Utils methods need for the project aka controller"""
+
+import coffee_machine_database as db
 
 # Load data from Database
-menu = Db.MENU
-resources = Db.RESOURCES
+menu = db.MENU
+resources = db.RESOURCES
 money_in_bank: float = 0.00
 
 
 def load_logo() -> None:
-    print(Db.LOGO)
+    """ Prints the logo on the console"""
+    print(db.LOGO)
 
 
 
@@ -22,6 +25,7 @@ def report() -> None:
 
 
 def is_valid(user_ask):
+    """Check whether the users ask is valid or not"""
     return user_ask in menu or user_ask in ['report', 'off']
 
 
@@ -44,10 +48,10 @@ def process_coins() -> float:
     :return: Total amount
     """
     total = 0.0
-    total += int(input("how many quarters?:\t")) * Db.DOMINATION.get("quarters")
-    total += int(input("how many dimes?:\t")) * Db.DOMINATION.get("dimes")
-    total += int(input("how many nickles?:\t")) * Db.DOMINATION.get("nickles")
-    total += int(input("how many pennies?:\t")) * Db.DOMINATION.get("pennies")
+    total += int(input("how many quarters?:\t")) * db.DOMINATION.get("quarters")
+    total += int(input("how many dimes?:\t")) * db.DOMINATION.get("dimes")
+    total += int(input("how many nickles?:\t")) * db.DOMINATION.get("nickles")
+    total += int(input("how many pennies?:\t")) * db.DOMINATION.get("pennies")
     return total
 
 
@@ -58,7 +62,7 @@ def is_transaction_successful(order_amount, payment) -> bool:
     if payment > order_amount:
         print(f"here is the change : {(payment-order_amount):.2f}")
         return True
-    elif payment == order_amount:
+    if payment == order_amount:
         return True
     return False
 
@@ -80,6 +84,7 @@ def make_order(order):
 
 
 def perform_task(user_ask) -> bool:
+    """makes the coffees as per the user request"""
     if user_ask in menu:
 
         order = menu.get(user_ask)
