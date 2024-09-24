@@ -1,4 +1,6 @@
+""" Contains Money class"""
 class MoneyMachine:
+    """ Contains operational methods related to money"""
     CURRENCY = "$"
 
     COIN_VALUES = {
@@ -19,7 +21,7 @@ class MoneyMachine:
     def process_coins(self)-> float:
         """Returns the total calculated from coins inserted."""
         print("Please insert coins.")
-        for coin in self.COIN_VALUES:
+        for coin in self.COIN_VALUES.items():
             self.money_received += int(input(f"How many {coin}?: ")) * self.COIN_VALUES[coin]
         return self.money_received
 
@@ -32,7 +34,8 @@ class MoneyMachine:
             self.profit += cost
             self.money_received = 0
             return True
-        else:
-            print("Sorry that's not enough money. Money refunded.")
-            self.money_received = 0
-            return False
+
+        # Unnecessary "else" after "return", remove the "else" and de-indent the code inside it (no-else-return)
+        print("Sorry that's not enough money. Money refunded.")
+        self.money_received = 0
+        return False

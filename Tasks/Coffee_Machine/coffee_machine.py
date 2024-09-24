@@ -1,6 +1,6 @@
 """ Main application file"""
 
-import Coffee_machine_Utils_methods as Machine
+import coffee_machine_utils_methods as Machine
 
 def main()-> None:
     """
@@ -15,7 +15,8 @@ def main()-> None:
     while machine_on:
         user_ask = input("What would you like? (espresso/latte/cappuccino:)\t")
         if Machine.is_valid(user_ask):
-            # 2. Based on the userinput call the respective methods once the action is completed return it back to the loop.
+            # 2. Based on the userinput call the respective methods
+            # once the action is completed return it back to the loop.
             machine_on = Machine.perform_task(user_ask)
         else:
             print(f"Please enter the Valid input: {user_ask} is not valid ask")

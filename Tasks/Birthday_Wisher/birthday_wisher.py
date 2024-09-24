@@ -45,7 +45,7 @@ def check_birthdays()-> str:
                     selected_letter = "letter_" + str(random.randint(1,3))
                     selected_letter_path = f"letter_templates/{selected_letter}.txt"
 
-                    with open(selected_letter_path) as letter_file:
+                    with open(selected_letter_path, encoding="utf-8") as letter_file:
                         letter = letter_file.read()
                         letter = letter.replace("[NAME]", str(row.name))
 

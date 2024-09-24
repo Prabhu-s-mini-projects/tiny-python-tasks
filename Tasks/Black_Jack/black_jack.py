@@ -28,10 +28,10 @@ def decide_winner(player_score_count: int, dealer_score_count: int) -> str:
     """ Decides the winner based on the rules"""
     if player_score_count > dealer_score_count:
         return "Player Wins 😎:"
-    elif player_score_count == dealer_score_count:
+    if player_score_count == dealer_score_count:
         return "🤯 Game TIED 🤔"
-    else:
-        return "Player Lose 😭"
+
+    return "Player Lose 😭"
 
 def main()-> None:
     """
@@ -65,7 +65,7 @@ def main()-> None:
         game_over = False
 
         # Task 2: Dealer and player gets 2 card.
-        for card in range(2):
+        for _ in range(2):
             dealer_cards.append(controller.get_another_card())
             player_cards.append(controller.get_another_card())
 

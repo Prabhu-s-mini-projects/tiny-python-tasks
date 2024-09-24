@@ -1,38 +1,51 @@
+""" Script that contains an edge a sketch program """
+# Dependencies
 import  turtle as controller
 
-# creating a pen.
-pen = controller.Turtle()
-#pen.shape("circle")
-pen.speed("fastest")
-#pen.hideturtle()
+def main()-> None:
+    """ Contains the main loop of program"""
 
-# creating a board
-board =  controller.Screen()
-board.listen()
+    # creating a pen.
+    pen = controller.Turtle()
+    #pen.shape("circle")
+    pen.speed("fastest")
+    #pen.hideturtle()
 
-# operations
-def move_forward():
-    pen.forward(10)
+    # creating a board
+    board =  controller.Screen()
+    board.listen()
 
-def move_backward():
-    pen.backward(10)
+    # operations
+    def move_forward():
+        """Move the pen 10 steps forward"""
+        pen.forward(10)
 
-def rotate_clockwise():
-    pen.right(90)
+    def move_backward():
+        """Move the pen 10 steps backward"""
+        pen.backward(10)
 
-def rotate_anti_clockwise():
-    pen.left(90)
+    def rotate_clockwise():
+        """turn the pen to right"""
+        pen.right(90)
 
-def clear_screen():
-    board.clearscreen()
-    pen.home()
+    def rotate_anti_clockwise():
+        """turn the pen to left"""
+        pen.left(90)
 
-# Mapping operations with Key
-board.onkey(move_forward,'w')
-board.onkey(move_backward,'s')
-board.onkey(rotate_anti_clockwise,'a')
-board.onkey(rotate_clockwise,'d')
-board.onkey(clear_screen,'c')
+    def clear_screen():
+        """clear the play screen"""
+        board.clearscreen()
+        pen.home()
+
+    # Mapping operations with Key
+    board.onkey(move_forward,'w')
+    board.onkey(move_backward,'s')
+    board.onkey(rotate_anti_clockwise,'a')
+    board.onkey(rotate_clockwise,'d')
+    board.onkey(clear_screen,'c')
 
 
-board.exitonclick()
+    board.exitonclick()
+
+if __name__ == '__main__':
+    main()
