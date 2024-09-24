@@ -13,7 +13,8 @@ class LinkedList:
     def __init__(self,data=None):
         self.node = Node(data=data) if data is not None else None
         self.head = self.node
-        # No need for this line since Node object by default set this as NONE. Just for understanding
+        # No need for this line since Node object by default set this as NONE.
+        # Just for understanding
         self.node.next = None
 
     def append(self,data)-> None:
@@ -50,7 +51,8 @@ class DoubleLinkedList:
         self.head = self.node
         self.tail = self.node
 
-        # No need for this line since Node object by default set this as NONE. Just for understanding
+        # No need for this line since Node object by default set this as NONE.
+        # Just for understanding
         self.node.next = None
         self.node.previous =None
 
@@ -130,6 +132,7 @@ def print_in_box(text)-> None:
     print('+' + '-' * (width - 2) + '+')  # Bottom border
 
 def main()-> None:
+    """Contains the main loop of a program"""
     new_linked_list = LinkedList(data=5)
     new_linked_list.append(6)
     new_linked_list.append(7)

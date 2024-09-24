@@ -35,7 +35,8 @@ class MoneyMachine:
             self.money_received = 0
             return True
 
-        # Unnecessary "else" after "return", remove the "else" and de-indent the code inside it (no-else-return)
+        # Unnecessary "else" after "return", remove the "else"
+        # and de-indent the code inside it (no-else-return)
         print("Sorry that's not enough money. Money refunded.")
         self.money_received = 0
         return False

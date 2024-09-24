@@ -1,4 +1,6 @@
-question_data = [
+"""Contains the Quiz data in a format similar to JSON data"""
+
+QUESTION_DATA = [
     {
         "category": "Science: Computers",
         "type": "boolean",
