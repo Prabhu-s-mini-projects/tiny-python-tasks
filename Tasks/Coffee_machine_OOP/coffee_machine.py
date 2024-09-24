@@ -16,7 +16,8 @@ def main()-> None:
             coffee_maker.report()
         elif request =="off":
             break
-        elif coffee_maker.is_resource_sufficient(drink=menu.find_drink(request)) and bank.make_payment(menu.find_drink(request).cost):
+        elif (coffee_maker.is_resource_sufficient(drink=menu.find_drink(request))
+              and bank.make_payment(menu.find_drink(request).cost)):
             coffee_maker.make_coffee(menu.find_drink(request))
         else:
             print(f"please enter valid input : {request} is not valid")
