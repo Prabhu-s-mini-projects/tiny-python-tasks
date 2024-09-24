@@ -1,4 +1,4 @@
-"""Contains methods and class that are necessary for UI of Quizzler"""
+"""Contains methods and class that are necessary for the UI of Quizzer"""
 
 # Dependencies
 from tkinter import Tk,Label,Canvas,Button,PhotoImage
@@ -12,13 +12,13 @@ RIGHT_PATH = "images/true.png"
 WRONG_PATH = "images/false.png"
 
 class QuizInterface:
-    """Creates a UI for the Quizzler game"""
+    """Creates a UI for the Quizzer game"""
 
     def __init__(self, quiz_brain:QuizBrain):
 
         self.quiz_brain = quiz_brain
         self.window = Tk()
-        self.window.title("Quizzler")
+        self.window.title("Quizzer")
         self.window.config(padx=20,pady=20,bg=THEME_COLOR)
 
         # Creating a canvas to hold card image
