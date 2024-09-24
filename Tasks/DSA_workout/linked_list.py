@@ -1,10 +1,6 @@
-# Dependencies
-
-# CONSTANTS
-
-# Global Parameters
-
+""" The Script contains the implementation one of Data structure (Linked list)"""
 class Node:
+    """Contains that holds data and next pointer"""
 
     def __init__(self, data, next = None, previous = None):
         self.previous = previous
@@ -12,14 +8,16 @@ class Node:
         self.next = next
 
 class LinkedList:
+    """ Class of singly LINKED LIST data structure"""
 
     def __init__(self,data=None):
         self.node = Node(data=data) if data is not None else None
         self.head = self.node
-
-        self.node.next = None # No need for this line since Node object by default set this as NONE. Just for understanding
+        # No need for this line since Node object by default set this as NONE. Just for understanding
+        self.node.next = None
 
     def append(self,data)-> None:
+        """ add a new element into a list"""
 
         # Looping until we reach the end of the list
         while self.node.next:
@@ -32,8 +30,9 @@ class LinkedList:
         self.node = self.head
 
     def print_all_items(self)-> None:
+        """ Print all the elements in the list of the same order"""
 
-        # Creating a temp node for iterate
+        # Creating a temp node for iterating
         current_node = self.head
         print(f"{current_node.data}")
 
@@ -44,6 +43,7 @@ class LinkedList:
 
 
 class DoubleLinkedList:
+    """ Class of Doubly LINKED LIST data structure"""
 
     def __init__(self, data=None):
         self.node = Node(data=data) if data is not None else None
@@ -55,6 +55,7 @@ class DoubleLinkedList:
         self.node.previous =None
 
     def append(self,data)-> None:
+        """ add a new element into a list"""
 
         # Looping the end of the list:
         while self.node.next:
@@ -70,8 +71,9 @@ class DoubleLinkedList:
 
 
     def print_head_to_tail(self) -> None:
+        """Print all the elements form head to tail"""
 
-        # Creating a temp node for iterate
+        # Creating a temp node for iterating
         current_node = self.head
         print(f"{current_node.data}")
 
@@ -81,6 +83,7 @@ class DoubleLinkedList:
             print(f"{current_node.data}")
 
     def print_tail_to_head(self)-> None:
+        """print all the elements from tail to head"""
 
         #Creating temp node
         current_node = self.tail
@@ -118,6 +121,7 @@ class DoubleLinkedList:
 
                     break
 def print_in_box(text)-> None:
+    """To display a list as per the understanding logical image format"""
 
     # Calculate the width of the box
     width = len(text) + 4  # 2 spaces on each side + 2 for the borders
@@ -151,4 +155,3 @@ def main()-> None:
 
 if __name__ == '__main__':
     main()
-
