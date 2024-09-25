@@ -68,6 +68,12 @@ To run a python code to run on cloud services for free
 
 - [International Space Station Current Location ](http://open-notify.org/Open-Notify-API/ISS-Location-Now/)
   - Eg [API endpoint:http://api.open-notify.org/iss-now.json]
+- Weather
+  - [sign-up](https://home.openweathermap.org/users/sign_up)
+  - [Home](https://openweathermap.org/current)
+  - [sign](https://home.openweathermap.org/users/sign_in)
+  - [Online JSON Viewer](https://home.openweathermap.org/users/sign_in)
+  - 
 
 ## Extension for browser
 
