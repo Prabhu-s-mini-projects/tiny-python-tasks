@@ -1,5 +1,5 @@
 import math
-from tkinter import *
+from tkinter import Tk, Label,Button,PhotoImage,Canvas
 
 # ---------------------------- CONSTANTS ------------------------------- #
 PINK = "#e2979c"
@@ -43,7 +43,10 @@ window.title("POMODORO Timer")
 window.config(padx=100,pady=50,bg=YELLOW)
 
 # Creating timer Logo
-timer_label = Label(text="Timer", fg=GREEN, font=(FONT_NAME, "40", "bold"),bg=YELLOW, highlightthickness=0)
+timer_label = Label(text="Timer",
+                    fg=GREEN,
+                    font=(FONT_NAME, "40", "bold"),
+                    bg=YELLOW, highlightthickness=0)
 timer_label.grid(row=0,column=1)
 
 # creating an Image and label with timer count down
