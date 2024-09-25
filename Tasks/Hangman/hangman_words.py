@@ -1,4 +1,5 @@
-word_list = [
+"""Contains the words for the game"""
+WORDS = [
     'abruptly',
     'absurd',
     'abyss',
