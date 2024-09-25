@@ -28,13 +28,13 @@ def main()-> None:
 
     # ---------------------------- loading data from csv ------------------------------- #
     try:
-        words_dataFrame = pandas.read_csv("Database/words_to_learn.csv")
+        words_dataframe = pandas.read_csv("Database/words_to_learn.csv")
     except FileNotFoundError:
-        words_dataFrame = pandas.read_csv("Database/french_words.csv")
+        words_dataframe = pandas.read_csv("Database/french_words.csv")
 
     #mapping_of_words = { row.French: row.English for index, row in words_dataFrame.iterrows()}
 
-    dictionary_of_words = words_dataFrame.to_dict(orient="records")
+    dictionary_of_words = words_dataframe.to_dict(orient="records")
 
     print(dictionary_of_words)
 
@@ -113,11 +113,13 @@ def main()-> None:
 
 
     # Creating right button
-    right_button = Button(image=right_image, command=next_card, highlightbackground=BACKGROUND_COLOR)
+    right_button = Button(image=right_image,
+                          command=next_card, highlightbackground=BACKGROUND_COLOR)
     right_button.grid(row=2,column=1)
 
     # Creating wrong button
-    wrong_button = Button(image=wrong_image, command=flip_card, highlightbackground=BACKGROUND_COLOR)
+    wrong_button = Button(image=wrong_image,
+                          command=flip_card, highlightbackground=BACKGROUND_COLOR)
     wrong_button.grid(row=2,column=0)
 
     flip_timer = window.after(3000, func=flip_card)
