@@ -1,8 +1,10 @@
+""" Contains the main UI file for Flash card Game for KIDS """
+
 # Dependencies
 import random
-from tkinter import *
+from tkinter import Tk,Canvas,Button,PhotoImage
 import pandas
-from pandas.core.interchange.dataframe_protocol import DataFrame
+
 
 # Internal modules
 # TBD
@@ -20,99 +22,109 @@ MESSAGE_FONT = ("Ariel", 60, "bold")
 current_card = None
 flip_timer = None
 
-# ---------------------------- loading data from csv ------------------------------- #
-try:
-    words_dataFrame = pandas.read_csv("Database/words_to_learn.csv")
-except FileNotFoundError:
-    words_dataFrame = pandas.read_csv("Database/french_words.csv")
+def main()-> None:
+    """ The Flash card contains english and French words """
 
-#mapping_of_words = { row.French : row.English for index, row in words_dataFrame.iterrows()}
 
-dictionary_of_words = words_dataFrame.to_dict(orient="records")
+    # ---------------------------- loading data from csv ------------------------------- #
+    try:
+        words_dataFrame = pandas.read_csv("Database/words_to_learn.csv")
+    except FileNotFoundError:
+        words_dataFrame = pandas.read_csv("Database/french_words.csv")
 
-print(dictionary_of_words)
+    #mapping_of_words = { row.French: row.English for index, row in words_dataFrame.iterrows()}
 
-# ---------------------------- UI  ------------------------------- #
+    dictionary_of_words = words_dataFrame.to_dict(orient="records")
 
-# Creating a screen
-window = Tk()
-window.title("Flash Card game")
-window.config(padx=50,pady=50,bg=BACKGROUND_COLOR)
+    print(dictionary_of_words)
 
-# Loading the cards image
-card_back_image = PhotoImage(file=CARD_BACK_PATH)
-card_front_image = PhotoImage(file=CARD_FRONT_PATH)
-right_image = PhotoImage(file=RIGHT_PATH)
-wrong_image = PhotoImage(file=WRONG_PATH)
+    # ---------------------------- UI  ------------------------------- #
 
-# Creating a canvas to hold card image
-canvas = Canvas(width=800,height=526, bg=BACKGROUND_COLOR, highlightthickness=0)
+    # Creating a screen
+    window = Tk()
+    window.title("Flash Card game")
+    window.config(padx=50,pady=50,bg=BACKGROUND_COLOR)
 
-# Appending image to the canvas
-bg_image = canvas.create_image(400,268, image=card_front_image)
+    # Loading the cards' image
+    card_back_image = PhotoImage(file=CARD_BACK_PATH)
+    card_front_image = PhotoImage(file=CARD_FRONT_PATH)
+    right_image = PhotoImage(file=RIGHT_PATH)
+    wrong_image = PhotoImage(file=WRONG_PATH)
 
-# Creating Label
-tittle_text = canvas.create_text(400, 130, text ="Title", fill='black',font=TITLE_FONT)
-message_text = canvas.create_text(400, 268, text ="Message", fill='black', font=MESSAGE_FONT)
+    # Creating a canvas to hold card image
+    canvas = Canvas(width=800,height=526, bg=BACKGROUND_COLOR, highlightthickness=0)
 
-# Positioning the canvas
-canvas.grid(row=0,column=0,columnspan=2)
+    # Appending image to the canvas
+    bg_image = canvas.create_image(400,268, image=card_front_image)
 
-# ---------------------------- Functionality  ------------------------------- #
+    # Creating Label
+    tittle_text = canvas.create_text(400, 130, text ="Title", fill='black',font=TITLE_FONT)
+    message_text = canvas.create_text(400, 268, text ="Message", fill='black', font=MESSAGE_FONT)
 
-def next_card()-> None:
+    # Positioning the canvas
+    canvas.grid(row=0,column=0,columnspan=2)
 
-    #pick a random card
-    global current_card, flip_timer
+    # ---------------------------- Functionality  ------------------------------- #
 
-    # cancel and restart the timer
-    window.after_cancel(flip_timer)
+    def next_card()-> None:
+        """ fetches the next card"""
 
-    if current_card:
+        #pick a random card
+        global current_card, flip_timer
 
-        #global  current_card
-        # remove the current word
-        dictionary_of_words.remove(current_card)
+        # cancel and restart the timer
+        window.after_cancel(flip_timer)
 
-        # save it to the new file
-        # updated_dict = {"French":"English"}
-        # updated_dict.update({item.get("French"):item.get("English") for item in dictionary_of_words})
+        if current_card:
 
-        # Updated dataframe
-        updated_dataframe = pandas.DataFrame.from_records(dictionary_of_words)
-        updated_dataframe.to_csv("Database/words_to_learn.csv",index=False)
+            #global current_card
+            # remove the current word
+            dictionary_of_words.remove(current_card)
 
-    # fetching the random card
-    current_card = random.choice(dictionary_of_words)
-    french_word = current_card.get("French")
+            # save it to the new file
+            # updated_dict = {"French":"English"}
+            # updated_dict.update({item.get("French"):item.get("English")
+            # for item in dictionary_of_words})
 
-    # Changes the value of the item inside a canvas
-    canvas.itemconfig(tittle_text, text="French", fill="black")
-    canvas.itemconfig(message_text, text=french_word, fill="black")
-    canvas.itemconfig(bg_image, image=card_front_image)
+            # Updated dataframe
+            updated_dataframe = pandas.DataFrame.from_records(dictionary_of_words)
+            updated_dataframe.to_csv("Database/words_to_learn.csv",index=False)
 
-    # starting the timer
+        # fetching the random card
+        current_card = random.choice(dictionary_of_words)
+        french_word = current_card.get("French")
+
+        # Changes the value of the item inside a canvas
+        canvas.itemconfig(tittle_text, text="French", fill="black")
+        canvas.itemconfig(message_text, text=french_word, fill="black")
+        canvas.itemconfig(bg_image, image=card_front_image)
+
+        # starting the timer
+        flip_timer = window.after(3000, func=flip_card)
+
+
+    def flip_card()-> None:
+        """flips the card back and share the respective word"""
+        global current_card
+
+        canvas.itemconfig(tittle_text,text="English", fill="white")
+        canvas.itemconfig(message_text, text=current_card.get("English"), fill="white")
+        canvas.itemconfig(bg_image, image=card_back_image)
+
+
+    # Creating right button
+    right_button = Button(image=right_image, command=next_card, highlightbackground=BACKGROUND_COLOR)
+    right_button.grid(row=2,column=1)
+
+    # Creating wrong button
+    wrong_button = Button(image=wrong_image, command=flip_card, highlightbackground=BACKGROUND_COLOR)
+    wrong_button.grid(row=2,column=0)
+
     flip_timer = window.after(3000, func=flip_card)
+    next_card()
 
 
-def flip_card()-> None:
-    global current_card
+    window.mainloop()
 
-    canvas.itemconfig(tittle_text,text="English", fill="white")
-    canvas.itemconfig(message_text, text=current_card.get("English"), fill="white")
-    canvas.itemconfig(bg_image, image=card_back_image)
-
-
-# Creating right button
-right_button = Button(image=right_image, command=next_card, highlightbackground=BACKGROUND_COLOR)
-right_button.grid(row=2,column=1)
-
-# Creating wrong button
-wrong_button = Button(image=wrong_image, command=flip_card, highlightbackground=BACKGROUND_COLOR)
-wrong_button.grid(row=2,column=0)
-
-flip_timer = window.after(3000, func=flip_card)
-next_card()
-
-
-window.mainloop()
+if __name__ == '__main__':
+    main()
