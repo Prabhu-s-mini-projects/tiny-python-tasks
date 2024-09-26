@@ -13,7 +13,7 @@ def read_file(path) -> list:
 
 def write_letter(path, contents:list)-> None:
     """Write the modified content to the letter"""
-    with open(path,"w") as file:
+    with open(path,"w",encoding='utf-8') as file:
         file.writelines(contents)
 
 def main()-> None:

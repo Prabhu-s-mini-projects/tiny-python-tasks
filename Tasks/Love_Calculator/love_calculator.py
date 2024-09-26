@@ -23,15 +23,15 @@ def main()-> None:
 
     combined_name = your_name + their_name
 
-    T = combined_name.lower().count('t')
-    R = combined_name.lower().count('r')
-    U = combined_name.lower().count('u')
-    E = combined_name.lower().count('e')
-    L = combined_name.lower().count('l')
-    O = combined_name.lower().count('o')
-    V = combined_name.lower().count('v')
+    t = combined_name.lower().count('t')
+    r = combined_name.lower().count('r')
+    u = combined_name.lower().count('u')
+    e = combined_name.lower().count('e')
+    l = combined_name.lower().count('l')
+    o = combined_name.lower().count('o')
+    v = combined_name.lower().count('v')
 
-    score = int(str(T + R + U + E) + str(L + O + V + E))
+    score = int(str(t + r + u + e) + str(l + o + v + e))
 
     if score < 10 or score > 90:
         print(f"Your score is {score}, you go together like coke and mentos.")
