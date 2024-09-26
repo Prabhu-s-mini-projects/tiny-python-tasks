@@ -1,7 +1,7 @@
 import  turtle as controller
 
 from Snake import Snake
-from Food import Food
+from food import Food
 from ScoreBoard import ScoreBoard
 import time
 

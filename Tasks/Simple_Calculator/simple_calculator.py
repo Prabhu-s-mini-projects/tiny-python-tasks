@@ -35,4 +35,5 @@ def main()-> None:
         # After that, it takes a result as input variable.
         result = calculation(first_number if result is None else result, next_number)
 
-        print(f"'{first_number if result is None else result}' {requested_operation} '{next_number}' = {result} ")
+        print(f"'{first_number if result is None else result}' "
+              f"{requested_operation} '{next_number}' = {result} ")
