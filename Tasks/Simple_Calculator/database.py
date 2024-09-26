@@ -1,6 +1,7 @@
-import Utils_Methods as Controller
+"""Database"""
+import utils_methods as Controller
 
-logo = """
+LOGO = r"""
  _____________________
 |  _________________  |
 | | PythonCALC   0. | |  .----------------.  .----------------.  .----------------.  .----------------. 
@@ -18,7 +19,7 @@ logo = """
 """
 
 # Supported Operations
-operators = {
+OPERATORS = {
     '+': Controller.add,
     '-': Controller.sub,
     '*': Controller.mul,
