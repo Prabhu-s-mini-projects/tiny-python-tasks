@@ -9,7 +9,9 @@ class QuizBrain:
 
     def next_question(self)-> None:
         """Reads next question"""
-        player_answer = input(f"Q.{self.question_number+1}:{self.question_list[self.question_number].question}? (True/False) :\t").lower()
+        player_answer = input(f"Q.{self.question_number+1}:"
+                              f"{self.question_list[self.question_number].question}?"
+                              f" (True/False) :\t").lower()
         self.validate_answer(player_answer, self.question_list[self.question_number].answer.lower())
         self.question_number += 1
 
