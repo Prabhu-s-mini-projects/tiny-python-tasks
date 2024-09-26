@@ -1,9 +1,11 @@
+"""Main script API"""
 # Dependencies
 import requests
 
 # Constants
 ENDPOINT = "http://api.open-notify.org/iss-now.json"
 def main()-> None:
+    """ read the data from API end point"""
     response = requests.get(url=ENDPOINT)
     response.raise_for_status()
 
