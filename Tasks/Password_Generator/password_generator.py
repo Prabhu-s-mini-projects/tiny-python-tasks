@@ -29,11 +29,11 @@ def main()->None:
 
 
     character_list = []
-    for letter in range(0, number_of_letters):
+    for _ in range(0, number_of_letters):
         character_list += random.choice(letters)
-    for symbol in range(0, number_of_symbols):
+    for _ in range(0, number_of_symbols):
         character_list += random.choice(symbols)
-    for number in range(0, number_of_numbers):
+    for _ in range(0, number_of_numbers):
         character_list += random.choice(numbers)
 
     if easy_or_hard == 'C':

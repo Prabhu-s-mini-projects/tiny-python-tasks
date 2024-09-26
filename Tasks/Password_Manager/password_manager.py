@@ -1,3 +1,4 @@
+""" Main script"""
 # Dependencies
 import json
 from tkinter import Tk, Label, Canvas, PhotoImage, Entry, Button
@@ -32,17 +33,20 @@ def main()-> None:
                 data = json.load(json_file)
 
         except FileNotFoundError:
-            messagebox.showinfo(title="NOT FOUND", message="Entered Website is not in database\n")
+            messagebox.showinfo(title="NOT FOUND",
+                                message="Entered Website is not in database\n")
 
         else:
 
             if website.lower() in data.keys():
                 credentials = data.get(website.lower())
-                messagebox.showinfo(title=website, message="Here are the Credentials\n"
-                                                           f"Email : {credentials.get('email')}\n"
-                                                           f"password: {credentials.get('password')}")
+                messagebox.showinfo(title=website,
+                                    message="Here are the Credentials\n"
+                                           f"Email : {credentials.get('email')}\n"
+                                           f"password: {credentials.get('password')}")
             else:
-                messagebox.showinfo(title="NOT FOUND", message="Entered Website is not in database\n")
+                messagebox.showinfo(title="NOT FOUND",
+                                    message="Entered Website is not in database\n")
 
     # ---------------------------- PASSWORD GENERATOR ------------------------------- #
     def generate_password() -> None:
