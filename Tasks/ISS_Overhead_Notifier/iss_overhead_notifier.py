@@ -1,6 +1,8 @@
-import requests
+""" Main script of overhead Notifier"""
+
 from datetime import datetime
 import smtplib
+import requests
 
 MY_LAT = 55.9571 # Your latitude
 MY_LONG = -5.4949 # Your longitude
@@ -9,6 +11,7 @@ MY_EMAIL = "tdummy206@gmail.com"
 PASSWORD = "ArqnFsktowTQHZ5"
 
 def is_iss_overhead()-> bool:
+    """ Check whether it over my location"""
     response = requests.get(url="http://api.open-notify.org/iss-now.json")
     response.raise_for_status()
     data = response.json()
@@ -22,6 +25,7 @@ def is_iss_overhead()-> bool:
     return False
 
 def is_night()-> bool:
+    """Check whether is a nighttime or day time"""
 
     # Getting current time
     time_now = datetime.now()
@@ -47,6 +51,7 @@ def is_night()-> bool:
     return False
 
 def send_notification()-> None:
+    """ Sends email alert"""
 
     with smtplib.SMTP("smtp.gmail.com", port=587) as connection:
         connection.starttls()
@@ -59,6 +64,7 @@ def send_notification()-> None:
     print("SEND the NOTIFICATION")
 
 def main()-> None:
+    """starting point of program"""
 
     send_notification()
 
