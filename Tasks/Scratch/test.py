@@ -4,7 +4,7 @@ def on_button_clicked()-> None:
     print("button clicked")
     # label["text"] = "Button Clicked"  # this one and line below both does the same thing.
     # But the bottom code is more read able and relevant.
-    #label.config("text = Button clicked")
+    # Label.config("text = Button clicked")
     entered_text = input_text.get()
     label.config(text=entered_text)
 

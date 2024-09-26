@@ -1,3 +1,5 @@
+"""Contains paddle class"""
+
 import turtle as controller
 
 # CONSTANTS
@@ -6,9 +8,8 @@ RIGHT_PADDLE_X_COORDINATE = 270
 MAX_TOP_COORDINATE = 280
 MAX_BOTTOM_COORDINATE =-280
 
-
-
 class Paddle(controller.Turtle):
+    """Inherits the turtle and act as paddle"""
 
     def __init__(self,side:str):
         super().__init__("square")
@@ -53,4 +54,5 @@ class Paddle(controller.Turtle):
         self.y_move *= -1
 
     def bounce_from_paddle(self):
+        """Bounce from paddle"""
         self.x_move *= -1
