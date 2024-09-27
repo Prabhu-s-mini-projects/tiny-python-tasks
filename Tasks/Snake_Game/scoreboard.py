@@ -28,7 +28,8 @@ class ScoreBoard(controller.Turtle):
         """refresh the scorecard"""
         self.clear()
         self.goto(TITLE_POSITION)
-        self.write(f"Score : {snake_length-DEFAULT_LENGTH} High Score : {self.high_score}",align=ALIGNMENT,font=FONT)
+        self.write(f"Score : {snake_length-DEFAULT_LENGTH}"
+                   f" High Score : {self.high_score}",align=ALIGNMENT,font=FONT)
         self.hideturtle()
         self.report_lives()
 

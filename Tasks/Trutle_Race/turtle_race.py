@@ -38,12 +38,7 @@ def main()->None:
                     print("you lose")
             race_turtle.forward(random.randint(1,10))
 
-
-
-
-
     race_track.exitonclick()
 
 if __name__ == '__main__':
     main()
-
