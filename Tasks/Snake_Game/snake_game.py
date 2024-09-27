@@ -8,6 +8,7 @@ from scoreboard import ScoreBoard
 
 
 def main()-> None:
+    """Start of program"""
 
     # Setting up the GAME place
     window = controller.Screen()
@@ -32,6 +33,8 @@ def main()-> None:
     game_over = False
 
     def game_over_sequence()->None:
+        """execute the game over sequences"""
+
         if scoreboard.lives:
             snake.head.home()
             scoreboard.reset_game(len(snake.snake_body))
