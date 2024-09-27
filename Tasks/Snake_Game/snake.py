@@ -1,3 +1,5 @@
+"""Contains a snake class"""
+
 # Required packages
 import turtle as controller
 
@@ -13,6 +15,7 @@ DIRECTIONS ={
 
 
 class Snake:
+    """contains snake obj and attibutes"""
 
     def __init__(self):
         """
