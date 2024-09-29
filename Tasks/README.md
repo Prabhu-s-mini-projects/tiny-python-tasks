@@ -72,7 +72,7 @@ To run a python code to run on cloud services for free
   - [sign-up](https://home.openweathermap.org/users/sign_up)
   - [Home](https://openweathermap.org/current)
   - [sign](https://home.openweathermap.org/users/sign_in)
-  - [Online JSON Viewer](https://home.openweathermap.org/users/sign_in)
+  - [Online JSON Viewer](https://jsonviewer.stack.hu)
   - 
 
 ## Extension for browser
