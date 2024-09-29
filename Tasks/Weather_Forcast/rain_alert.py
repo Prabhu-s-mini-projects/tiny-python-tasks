@@ -1,7 +1,7 @@
 """This program gives alert if there is rain in the next 12 hrs"""
 
 # Dependencies
-import datetime as dt
+# import datetime as dt
 import requests
 
 # Internal modules
@@ -33,9 +33,7 @@ def will_rain(weather_data:dict)-> bool:
     status_list = [True for weather_datum in weather_data.get('list')
                    if weather_datum.get('weather')[0].get('id') < 700]
 
-    return True if status_list else  False
-
-
+    return bool(status_list)
 
 # Methods
 def main()-> None:
