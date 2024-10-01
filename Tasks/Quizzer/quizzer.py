@@ -18,7 +18,7 @@ def main()-> None:
         "type":"boolean"
     }
 
-    response = requests.get(url=API_ENDPOINT,params=parameters)
+    response = requests.get(url=API_ENDPOINT,params=parameters,timeout=10)
     response.raise_for_status()
     data = response.json()
     if data['results']:

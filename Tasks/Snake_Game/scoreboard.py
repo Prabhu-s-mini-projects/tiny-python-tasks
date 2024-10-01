@@ -36,8 +36,8 @@ class ScoreBoard(controller.Turtle):
     def reset_game(self, snake_length: int)-> None:
         """resets the game"""
         if self.high_score < (snake_length-DEFAULT_LENGTH):
-            self.high_score = (snake_length-DEFAULT_LENGTH)
-            self.set_highscore(self.high_score)
+            self.high_score = snake_length-DEFAULT_LENGTH
+            self.set_highscore()
         self.refresh(DEFAULT_LENGTH)
         self.lives.pop()
         #self.report_lives() Will be fixed later
@@ -60,7 +60,7 @@ class ScoreBoard(controller.Turtle):
             highscore =  int(database.read())
         return highscore
 
-    def set_highscore(self, highscore: int)-> None:
+    def set_highscore(self)-> None:
         """set the high score"""
         with open("database.txt","w", encoding="utf-8") as database:
             database.write(f"{self.high_score}")
