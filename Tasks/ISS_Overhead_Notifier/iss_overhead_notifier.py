@@ -8,11 +8,11 @@ MY_LAT = 55.9571 # Your latitude
 MY_LONG = -5.4949 # Your longitude
 
 MY_EMAIL = "tdummy206@gmail.com"
-PASSWORD = "ArqnFsktowTQHZ5"
+PASSWORD = "ArqnFsktowdTQHZ5"
 
 def is_iss_overhead()-> bool:
     """ Check whether it over my location"""
-    response = requests.get(url="http://api.open-notify.org/iss-now.json")
+    response = requests.get(url="http://api.open-notify.org/iss-now.json",timeout=10)
     response.raise_for_status()
     data = response.json()
 
@@ -37,7 +37,7 @@ def is_night()-> bool:
         "formatted": 0,
     }
 
-    response = requests.get("https://api.sunrise-sunset.org/json", params=parameters)
+    response = requests.get("https://api.sunrise-sunset.org/json", params=parameters,timeout=10)
     response.raise_for_status()
     data = response.json()
     sunrise = int(data["results"]["sunrise"].split("T")[1].split(":")[0])
@@ -78,5 +78,3 @@ def main()-> None:
 
 if __name__ == '__main__':
     main()
-
-
