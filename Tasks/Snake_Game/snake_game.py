@@ -32,7 +32,7 @@ def main()-> None:
 
     game_over = False
 
-    def game_over_sequence()->None:
+    def game_over_sequence()-> bool:
         """execute the game over sequences"""
 
         if scoreboard.lives:
@@ -40,10 +40,10 @@ def main()-> None:
             scoreboard.reset_game(len(snake.snake_body))
             for seg in snake.snake_body[3:]:
                 snake.snake_body.remove(seg)
-        else:
-            #global game_over
-            game_over = True
-            scoreboard.report_game_over()
+            return False
+
+        scoreboard.report_game_over()
+        return True
 
     while not game_over:
         window.update() # To update the screen after the segments complete taking first step
@@ -56,14 +56,14 @@ def main()-> None:
 
         # Detect the collusion.
         if not -290 < snake.head.xcor() < 290 or  not -290 < snake.head.ycor() < 290:
-            game_over_sequence()
+            game_over = game_over_sequence()
 
         # Detecting the tail.
         for segment in snake.snake_body:
             if segment.position() == snake.head.position():
                 pass
             elif snake.head.distance(segment) < 10:
-                game_over_sequence()
+                game_over = game_over_sequence()
 
     window.exitonclick()
 

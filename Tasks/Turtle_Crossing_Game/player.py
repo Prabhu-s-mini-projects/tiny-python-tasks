@@ -1,6 +1,6 @@
+"""Contains a player class"""
 # Dependencies
 from turtle import Turtle
-
 
 # Internal modules
 
@@ -27,5 +27,6 @@ class Player(Turtle):
 
     def go_to_start(self)->None:
         """
+        puts the player in stating position
         """
         self.goto(STARTING_POSITION)

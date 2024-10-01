@@ -1,7 +1,7 @@
+"""Contains Car manager class"""
 # Dependencies
 import random
 from turtle import Turtle as Car
-
 
 # Internal Modules
 # N/A
@@ -21,6 +21,7 @@ class CarManager:
         self.create_car()
 
     def create_car(self)->None:
+        """Creates a car and place it start position"""
         if random.randint(1,6) == 1:
             car  = Car("square")
             car.color(random.choice(COLORS))
