@@ -29,7 +29,7 @@ def main()-> None:
 
     # Keep the game running
     game_over= False
-    count = 0
+    #count = 0
     number_of_car = 10
     while not game_over:
         game_window.update()

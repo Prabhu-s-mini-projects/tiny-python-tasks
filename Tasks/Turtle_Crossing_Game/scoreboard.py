@@ -10,7 +10,7 @@ POSITION = (-230,250)
 
 class Scoreboard(controller.Turtle):
     """
-    Creates a instance to maintain the score
+    Creates an instance to maintain the score
     """
     def __init__(self,):
         super().__init__()
