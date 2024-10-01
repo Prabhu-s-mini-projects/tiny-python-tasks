@@ -19,7 +19,7 @@ def main()-> None:
     game_window.addshape(BLANK_STATE_IMAGE)
 
     # updating the screen with image
-    controller.shape(BLANK_STATE_IMAGE)
+    controller.shape(BLANK_STATE_IMAGE) # pylint: disable=no-member
 
     # Display the input pop-up box
     answer = game_window.textinput(title="Guess the State GAME",
@@ -67,7 +67,7 @@ def main()-> None:
         answer = game_window.textinput(title=f"{score}/50 state",
                                        prompt="Whats the another state name?").title()
 
-    controller.mainloop()
+    game_window.mainloop()
 
 if __name__ == '__main__':
     main()

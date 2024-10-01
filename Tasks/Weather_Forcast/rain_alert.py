@@ -61,7 +61,7 @@ def main()-> None:
     """Start of a program"""
 
     # Make a request to Forcast API and get response
-    response = requests.get(url=WEATHER_API_END_POINT,params=WEATHER_PARAMS)
+    response = requests.get(url=WEATHER_API_END_POINT,params=WEATHER_PARAMS, timeout=10)
     response.raise_for_status()
 
     # Print the HTTP status code
