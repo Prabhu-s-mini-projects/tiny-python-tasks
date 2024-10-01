@@ -16,7 +16,7 @@ def load_logo() -> None:
 
 def report() -> None:
     """
-     To display current quantity of Resources.
+     To display the current quantity of Resources.
     """
     print(f"Water : {resources.get('water')}ml")
     print(f"Milk : {resources.get('milk')}ml")

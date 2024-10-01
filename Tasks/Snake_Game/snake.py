@@ -15,7 +15,7 @@ DIRECTIONS ={
 
 
 class Snake:
-    """contains snake obj and attibutes"""
+    """contains snake obj and attributes"""
 
     def __init__(self):
         """

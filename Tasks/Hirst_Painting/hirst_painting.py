@@ -9,7 +9,7 @@ import colorgram
 
 def extract_color()-> list:
     """# Extract 6 colors from an image."""
-    colors = colorgram.extract('image.jpg', 60)
+    colors = colorgram.extract('./image.jpg', 60)
     rgb_color = []
     for color in colors:
         r = color.rgb.r
@@ -37,7 +37,7 @@ def main()-> None:
     timmy_turtle.forward(300)
     timmy_turtle.setheading(0)
 
-    start_place = timmy_turtle.position
+    #start_place = timmy_turtle.position
     number_of_dots = 100
 
     for dot_count in range(1, number_of_dots+1):

@@ -10,8 +10,9 @@ def main()->None:
     race_track.setup(height=500,width=540)
 
     #ask Player  to bet
-    player_bet = race_track.textinput(title="Please place your bet", prompt="Which turtle will win the race? \n"
-                                                                            " Enter a color:\t")
+    player_bet = race_track.textinput(title="Please place your bet",
+                                      prompt="Which turtle will win the race? \n"
+                                             " Enter a color:\t")
     print(player_bet)
 
     colors = ["red", "blue", "green","purple", "black","orange","violet"]
