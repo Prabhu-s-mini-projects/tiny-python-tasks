@@ -60,8 +60,10 @@ def main() -> None:
     # # Get yesterday's closing stock price.
     # Hint: You can perform list comprehensions on Python dictionaries.
     # # e.g. [new_value for (key, value) in dictionary.items()]
-    # yesterday = str(dt.datetime.today().date() - dt.timedelta(1))
-    # day_before_yes = str(dt.datetime.today().date() - dt.timedelta(2))
+    yesterday = str(dt.datetime.today().date() - dt.timedelta(1))
+    print(f"{ yesterday = } ")
+
+    #day_before_yes = str(dt.datetime.today().date() - dt.timedelta(2))
     #
     # stock_prices_history = data.get("Time Series (Daily)")
     #
@@ -74,7 +76,8 @@ def main() -> None:
     # day_before_yesterday = float(stock_price[2])
     #
     # # Find the positive difference between 1 and 2. e.g. 40 - 20 = -20,
-    # # but the positive difference is 20. Hint: https://www.w3schools.com/python/ref_func_abs.asp
+    # # but the positive difference is 20.
+    # Hint: https://www.w3schools.com/python/ref_func_abs.asp
     # difference = abs(yesterday_closing_price - day_before_yesterday)
     # print(f"{ difference = } ")
     #
@@ -90,9 +93,11 @@ def main() -> None:
     #
     #
     # ## STEP 2: https://newsapi.org/
-    # # Instead of printing ("Get News"), actually get the first 3 news pieces for the COMPANY_NAME.
+    # # Instead of printing ("Get News"),
+    # actually get the first 3 news pieces for the COMPANY_NAME.
     #
-    # # Instead of printing ("Get News"), use the News API to get articles related to the COMPANY_NAME.
+    # # Instead of printing ("Get News"),
+    # use the News API to get articles related to the COMPANY_NAME.
     # news =  get_news("Tesla").get('articles')
     # print(f"{ news = } ")
     #
