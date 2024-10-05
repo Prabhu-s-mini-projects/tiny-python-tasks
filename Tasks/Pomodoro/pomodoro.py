@@ -16,7 +16,6 @@ LONG_BREAK_MIN = 20
 def on_click_reset()-> None:
     """Resets the clock"""
     print("yet to code")
-    pass
 
 # ---------------------------- UI SETUP ------------------------------- #
 def main()-> None:
