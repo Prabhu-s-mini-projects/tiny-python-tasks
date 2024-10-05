@@ -53,22 +53,22 @@ class RequestService:
     def post(self, url: str, data_params: dict, headers: dict = None) -> requests.Response:
         """POST request with optional custom headers"""
         all_headers = self.merge_headers(headers)
-        return requests.post(url=url, json=data_params, headers=all_headers)
+        return requests.post(url=url, json=data_params, headers=all_headers, timeout=10)
 
     @response_handler
     def get(self, url: str, data_params: dict = None, headers: dict = None) -> requests.Response:
         """GET request with optional custom headers"""
         all_headers = self.merge_headers(headers)
-        return requests.get(url=url, params=data_params, headers=all_headers)
+        return requests.get(url=url, params=data_params, headers=all_headers, timeout=10)
 
     @response_handler
     def put(self, url: str, data_params: dict, headers: dict = None) -> requests.Response:
         """PUT request with optional custom headers"""
         all_headers = self.merge_headers(headers)
-        return requests.put(url=url, json=data_params, headers=all_headers)
+        return requests.put(url=url, json=data_params, headers=all_headers, timeout=10)
 
     @response_handler
     def delete(self, url: str, data_params: dict = None, headers: dict = None) -> requests.Response:
         """DELETE request with optional custom headers"""
         all_headers = self.merge_headers(headers)
-        return requests.delete(url=url, json=data_params, headers=all_headers)
+        return requests.delete(url=url, json=data_params, headers=all_headers, timeout=10)
