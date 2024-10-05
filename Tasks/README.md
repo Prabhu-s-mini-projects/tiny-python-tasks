@@ -54,6 +54,7 @@ Rules:
   - https://docs.python.org/3/library/smtplib.html
 - [datetime](https://docs.python.org/3/library/datetime.html) 
   - works with date and time.
+  - [W3School](https://www.w3schools.com/python/python_datetime.asp)
 - [requests](https://docs.python-requests.org/en/latest/)
   - [HTTP status codes ](https://www.webfx.com/web-development/glossary/http-status-codes/)
 - HTML
@@ -61,7 +62,7 @@ Rules:
   
 ## Services:
 
-To run a python code to run on cloud services for free
+To run python code to run on cloud services for free
     refer: https://www.pythonanywhere.com
 
 ## APIs
