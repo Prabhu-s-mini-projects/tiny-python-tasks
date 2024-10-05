@@ -6,8 +6,6 @@ import requests
 # Custom exception for handling request errors-------------------
 class RequestError(Exception):
     """Custom exception for request errors"""
-    pass
-
 
 # Decorator Methods ----------------------------------------------
 def response_handler(func):
