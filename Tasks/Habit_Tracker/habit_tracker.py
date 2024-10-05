@@ -129,7 +129,8 @@ def update_a_post(date: str, quantity: int) -> dict:
     }
 
     return send_put_requests(json=data, url=POST_ENDPOINT + f'/{date}', headers=HEADERS)
-    
+
+
 def main() -> None:
     """Start of a program"""
 
