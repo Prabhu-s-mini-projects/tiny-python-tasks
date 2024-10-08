@@ -29,7 +29,7 @@ def main()-> None:
         try:  # For the first time JSON file is not available or deleted
 
             # reading the stored Passwords
-            with open("passwords.json", 'r') as json_file:
+            with open("passwords.json", 'r',encoding='utf-8') as json_file:
                 data = json.load(json_file)
 
         except FileNotFoundError:
