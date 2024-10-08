@@ -2,4 +2,4 @@
 ignored-modules=turtle
 
 [MASTER]
-init-hook='import sys; sys.path.append("tiny-python-tasks")'
+init-hook='import sys; sys.path.append(".")''
