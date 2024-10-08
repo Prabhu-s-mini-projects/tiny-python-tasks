@@ -105,8 +105,9 @@ class DoubleLinkedList:
         # Making sure the first node is not the target_node
         if self.head != target_node:
 
-           # Looping to all the element in the list
-           while self.node.pointer_next:
+            # Looping to all the element in the list
+            while self.node.pointer_next:
+
                 #self.node =  self.node.next
 
                 # Making checking current node is target node
