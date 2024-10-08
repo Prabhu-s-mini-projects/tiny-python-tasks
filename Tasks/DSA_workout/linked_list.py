@@ -123,6 +123,8 @@ class DoubleLinkedList:
                     self.node.previous = new_node
 
                     break
+
+
 def print_in_box(text)-> None:
     """To display a list as per the understanding logical image format"""
 
