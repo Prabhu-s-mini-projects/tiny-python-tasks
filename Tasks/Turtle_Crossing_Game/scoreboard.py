@@ -12,6 +12,7 @@ class Scoreboard(controller.Turtle):
     """
     Creates an instance to maintain the score
     """
+
     def __init__(self):
         super().__init__()
         self.penup()
