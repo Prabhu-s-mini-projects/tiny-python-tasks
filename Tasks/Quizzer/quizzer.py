@@ -1,10 +1,10 @@
 """ View or Main entry of Quizzer application"""
-from ui import QuizInterface
+import requests
+
 from question_model import Question
 # from data import QUESTION_DATA
 from quiz_brain import QuizBrain
-import  requests
-
+from ui import QuizInterface
 
 # API
 API_ENDPOINT  = "https://opentdb.com/api.php" ##?amount=10&type=boolean"
@@ -31,7 +31,7 @@ def main()-> None:
 
 
     quiz = QuizBrain(question_bank)
-    quiz_ui = QuizInterface(quiz)
+    QuizInterface(quiz)
 
     # while quiz.still_has_questions():
     #     quiz.next_question()

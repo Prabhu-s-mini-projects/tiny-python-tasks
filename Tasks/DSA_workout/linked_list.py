@@ -2,10 +2,10 @@
 class Node:
     """Contains that holds data and next pointer"""
 
-    def __init__(self, data, next = None, previous = None):
+    def __init__(self, data, pointer_next=None, previous=None):
         self.previous = previous
         self.data = data
-        self.next = next
+        self.pointer_next = pointer_next
 
 class LinkedList:
     """ Class of singly LINKED LIST data structure"""
@@ -15,17 +15,17 @@ class LinkedList:
         self.head = self.node
         # No need for this line since Node object by default set this as NONE.
         # Just for understanding
-        self.node.next = None
+        self.node.pointer_next = None
 
     def append(self,data)-> None:
         """ add a new element into a list"""
 
         # Looping until we reach the end of the list
-        while self.node.next:
-            self.node = self.node.next
+        while self.node.pointer_next:
+            self.node = self.node.pointer_next
 
         # Adding a new node at end of the list
-        self.node.next = Node(data=data)
+        self.node.pointer_next = Node(data=data)
 
         # Bring the pointer back to head
         self.node = self.head
@@ -38,8 +38,8 @@ class LinkedList:
         print(f"{current_node.data}")
 
         # Looping until we reach the end of the list
-        while current_node.next:
-            current_node = current_node.next
+        while current_node.pointer_next:
+            current_node = current_node.pointer_next
             print(f"{current_node.data}")
 
 
@@ -53,22 +53,22 @@ class DoubleLinkedList:
 
         # No need for this line since Node object by default set this as NONE.
         # Just for understanding
-        self.node.next = None
+        self.node.pointer_next = None
         self.node.previous =None
 
     def append(self,data)-> None:
         """ add a new element into a list"""
 
         # Looping the end of the list:
-        while self.node.next:
-            self.node = self.node.next
+        while self.node.pointer_next:
+            self.node = self.node.pointer_next
 
         # Creating a new node
         new_node = Node(data= data)
         new_node.previous = self.node
-        self.node.next = new_node
+        self.node.pointer_next = new_node
 
-        self.tail = self.node.next
+        self.tail = self.node.pointer_next
         self.node = self.head
 
 
@@ -80,8 +80,8 @@ class DoubleLinkedList:
         print(f"{current_node.data}")
 
         # Looping until we reach the end of the list
-        while current_node.next :
-            current_node = current_node.next
+        while current_node.pointer_next:
+            current_node = current_node.pointer_next
             print(f"{current_node.data}")
 
     def print_tail_to_head(self)-> None:
@@ -98,30 +98,34 @@ class DoubleLinkedList:
     def insert_before_node(self, data, target_node:Node)->  None:
         """
         Inserts a node before the given node
+        :param data:
         :param target_node:
         :return:
         """
-        # Making sure first node is not the target_node
+        # Making sure the first node is not the target_node
         if self.head != target_node:
 
-           # Looping to all the element in the list
-            while self.node.next:
+            # Looping to all the element in the list
+            while self.node.pointer_next:
+
                 #self.node =  self.node.next
 
                 # Making checking current node is target node
-                if self.node.next == target_node:
+                if self.node.pointer_next == target_node:
 
                     # Creating a new node
                     new_node = Node(data=data)
 
                     # Assigning previous and next of target node to newly created node
                     new_node.previous = self.node
-                    new_node.next = self.node.next
+                    new_node.pointer_next = self.node.pointer_next
 
                     # Updating the current node chain
                     self.node.previous = new_node
 
                     break
+
+
 def print_in_box(text)-> None:
     """To display a list as per the understanding logical image format"""
 

@@ -2,4 +2,4 @@
 ignored-modules=turtle
 
 [MASTER]
-init-hook='import sys; sys.path.append("/path/to/root")'
+init-hook='import sys; sys.path.append(".")'

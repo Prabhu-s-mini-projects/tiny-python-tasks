@@ -21,7 +21,7 @@ def main()-> None:
     # Create Paddle and its behaviours
     left_paddle = Paddle("left")
     right_paddle = Paddle("right")
-    divider = Paddle("wall")
+    Paddle("wall")
     ball = Paddle("ball")
 
     left_scoreboard = Scoreboard("left")
