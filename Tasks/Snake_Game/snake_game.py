@@ -1,10 +1,10 @@
 """Main Scirpt of the game"""
 import time
-import  turtle as controller
+import turtle as controller
 
-from snake import Snake
-from food import Food
 from Tasks.Snake_Game.scoreboard import ScoreBoard
+from food import Food
+from snake import Snake
 
 
 def main()-> None:

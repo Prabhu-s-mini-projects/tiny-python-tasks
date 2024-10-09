@@ -2,9 +2,9 @@
 
 # Dependencies
 import random
-from tkinter import Tk,Canvas,Button,PhotoImage
-import pandas
+from tkinter import Tk, Canvas, Button, PhotoImage
 
+import pandas
 
 # Internal modules
 # TBD
@@ -73,7 +73,7 @@ def main()-> None:
         global CURRENT_CARD, FLIP_TIMER
 
         # cancel and restart the timer
-        window.after_cancel(FLIP_TIMER)
+        # window.after_cancel(FLIP_TIMER)
 
         if CURRENT_CARD:
 
@@ -100,7 +100,7 @@ def main()-> None:
         canvas.itemconfig(bg_image, image=card_front_image)
 
         # starting the timer
-        FLIP_TIMER = window.after(3000, func=flip_card)
+        #FLIP_TIMER = window.after(3000, func=flip_card)
 
 
     def flip_card()-> None:
@@ -108,7 +108,7 @@ def main()-> None:
         global CURRENT_CARD
 
         canvas.itemconfig(tittle_text,text="English", fill="white")
-        canvas.itemconfig(message_text, text=CURRENT_CARD.get("English"), fill="white")
+        #canvas.itemconfig(message_text, text=CURRENT_CARD.get("English"), fill="white")
         canvas.itemconfig(bg_image, image=card_back_image)
 
 
@@ -122,7 +122,7 @@ def main()-> None:
                           command=flip_card, highlightbackground=BACKGROUND_COLOR)
     wrong_button.grid(row=2,column=0)
 
-    FLIP_TIMER = window.after(3000, func=flip_card)
+    #FLIP_TIMER = window.after(3000, func=flip_card)
     next_card()
 
 
