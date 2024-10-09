@@ -15,7 +15,7 @@ class Scoreboard(Turtle):
     """
 
     def __init__(self):
-        super().__init__()
+        super().__init__("turtle")
         self.penup()
         self.color("white")
         self.level = 0

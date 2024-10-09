@@ -1,8 +1,9 @@
 """Main script of HANGMAN Game"""
 
 import random
-import hangman_words as word_db
+
 import hangman_art as art
+import hangman_words as word_db
 
 # Starting the GAME and Loading the data from Database (db)
 print(art.LOGO)
@@ -18,7 +19,7 @@ for _ in range(len(word)):
     guess_word.append('_')
 
 level = input('Please choose the difficultly level:"EASY" or "MEDIUM" or "HARD\n').lower()
-while level not in art.LIVES_FOR_EACH_LEVEL.keys():
+while level not in art.LIVES_FOR_EACH_LEVEL:
     print(f"You've invalid value : {level}.")
     level = input('Please choose the difficultly level:"EASY" or "MEDIUM" or "HARD\n').lower()
 
@@ -35,10 +36,12 @@ while lives > 0 and '_' in guess_word:
             print(f'\nYou\'ve already entered the letter: {guessed_letter}')
         else:
             # To track the position of the letter and to handle different occurrence of same letter
-            for position in range(len(word)):
+            for position, letter in enumerate(word):
                 # Look for the letter. If Yes, Replace the letter in same position at Guessed_letter
                 if guessed_letter == word[position]:
                     guess_word[position] = guessed_letter
+                    print(f"{ letter = } ")
+                    
     else:
         lives -= 1
         print(f'\n Remaining lives : {lives}')

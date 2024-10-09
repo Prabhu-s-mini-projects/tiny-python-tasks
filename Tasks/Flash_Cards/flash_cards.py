@@ -19,8 +19,8 @@ TITLE_FONT = ("Ariel", 40, "italic")
 MESSAGE_FONT = ("Ariel", 60, "bold")
 
 # Global Variables
-CURRENT_CARD = None
-FLIP_TIMER = None
+CURRENT_CARD = {'English': 'English', 'French': 'French'}
+FLIP_TIMER = {'English': 'English', 'French': 'French'}
 
 def main()-> None:
     """ The Flash card contains english and French words """
