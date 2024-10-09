@@ -1,6 +1,6 @@
 """Contains scoreboard class"""
 # Dependencies
-import  turtle as controller
+from turtle import Turtle
 
 
 # CONSTANTS
@@ -8,7 +8,8 @@ ALIGNMENT ="center"
 FONT = ('Courier', 24, 'normal')
 POSITION = (-230,250)
 
-class Scoreboard(controller.Turtle):
+
+class Scoreboard(Turtle):
     """
     Creates an instance to maintain the score
     """
