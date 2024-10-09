@@ -19,8 +19,8 @@ TITLE_FONT = ("Ariel", 40, "italic")
 MESSAGE_FONT = ("Ariel", 60, "bold")
 
 # Global Variables
-current_card = None
-flip_timer = None
+CURRENT_CARD = None
+FLIP_TIMER = None
 
 def main()-> None:
     """ The Flash card contains english and French words """
@@ -70,16 +70,16 @@ def main()-> None:
         """ fetches the next card"""
 
         #pick a random card
-        global current_card, flip_timer
+        global CURRENT_CARD, FLIP_TIMER
 
         # cancel and restart the timer
-        window.after_cancel(flip_timer)
+        window.after_cancel(FLIP_TIMER)
 
-        if current_card:
+        if CURRENT_CARD:
 
             #global current_card
             # remove the current word
-            dictionary_of_words.remove(current_card)
+            dictionary_of_words.remove(CURRENT_CARD)
 
             # save it to the new file
             # updated_dict = {"French":"English"}
@@ -91,8 +91,8 @@ def main()-> None:
             updated_dataframe.to_csv("Database/words_to_learn.csv",index=False)
 
         # fetching the random card
-        current_card = random.choice(dictionary_of_words)
-        french_word = current_card.get("French")
+        CURRENT_CARD = random.choice(dictionary_of_words)
+        french_word = CURRENT_CARD.get("French")
 
         # Changes the value of the item inside a canvas
         canvas.itemconfig(tittle_text, text="French", fill="black")
@@ -100,15 +100,15 @@ def main()-> None:
         canvas.itemconfig(bg_image, image=card_front_image)
 
         # starting the timer
-        flip_timer = window.after(3000, func=flip_card)
+        FLIP_TIMER = window.after(3000, func=flip_card)
 
 
     def flip_card()-> None:
         """flips the card back and share the respective word"""
-        global current_card
+        global CURRENT_CARD
 
         canvas.itemconfig(tittle_text,text="English", fill="white")
-        canvas.itemconfig(message_text, text=current_card.get("English"), fill="white")
+        canvas.itemconfig(message_text, text=CURRENT_CARD.get("English"), fill="white")
         canvas.itemconfig(bg_image, image=card_back_image)
 
 
@@ -122,7 +122,7 @@ def main()-> None:
                           command=flip_card, highlightbackground=BACKGROUND_COLOR)
     wrong_button.grid(row=2,column=0)
 
-    flip_timer = window.after(3000, func=flip_card)
+    FLIP_TIMER = window.after(3000, func=flip_card)
     next_card()
 
 

@@ -4,7 +4,7 @@ import  turtle as controller
 
 from snake import Snake
 from food import Food
-from scoreboard import ScoreBoard
+from Tasks.Snake_Game.scoreboard import ScoreBoard
 
 
 def main()-> None:
