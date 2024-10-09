@@ -90,7 +90,7 @@ def main()-> None:
             updated_dataframe.to_csv("Database/words_to_learn.csv", index=False)
 
         # fetching the random card
-        global CURRENT_CARD
+        #
         CURRENT_CARD = random.choice(dictionary_of_words)
         french_word = CURRENT_CARD.get("French")
 
