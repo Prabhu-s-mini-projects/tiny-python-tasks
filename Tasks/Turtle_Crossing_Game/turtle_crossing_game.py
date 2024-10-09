@@ -5,8 +5,9 @@ import turtle as controller
 
 # Internal Modules
 from car_manager import CarManager
-from scoreboard import Scoreboard
 from player import Player
+from scoreboard import Scoreboard
+
 
 def main()-> None:
     """Start of a program"""
