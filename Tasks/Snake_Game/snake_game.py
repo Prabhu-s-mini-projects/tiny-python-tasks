@@ -2,9 +2,9 @@
 import time
 import turtle as controller
 
+from Tasks.Snake_Game.food import Food
 from Tasks.Snake_Game.scoreboard import ScoreBoard
-from food import Food
-from snake import Snake
+from Tasks.Snake_Game.snake import Snake
 
 
 def main()-> None:
