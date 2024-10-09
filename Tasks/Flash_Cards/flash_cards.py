@@ -70,14 +70,13 @@ def main()-> None:
         """ fetches the next card"""
 
         #pick a random card
-        global CURRENT_CARD, FLIP_TIMER
+        global CURRENT_CARD
 
         # cancel and restart the timer
         # window.after_cancel(FLIP_TIMER)
 
         if CURRENT_CARD:
-
-            #global current_card
+            # global current_card
             # remove the current word
             dictionary_of_words.remove(CURRENT_CARD)
 
@@ -88,9 +87,10 @@ def main()-> None:
 
             # Updated dataframe
             updated_dataframe = pandas.DataFrame.from_records(dictionary_of_words)
-            updated_dataframe.to_csv("Database/words_to_learn.csv",index=False)
+            updated_dataframe.to_csv("Database/words_to_learn.csv", index=False)
 
         # fetching the random card
+        global CURRENT_CARD
         CURRENT_CARD = random.choice(dictionary_of_words)
         french_word = CURRENT_CARD.get("French")
 
@@ -105,7 +105,7 @@ def main()-> None:
 
     def flip_card()-> None:
         """flips the card back and share the respective word"""
-        global CURRENT_CARD
+        #global CURRENT_CARD
 
         canvas.itemconfig(tittle_text,text="English", fill="white")
         #canvas.itemconfig(message_text, text=CURRENT_CARD.get("English"), fill="white")
@@ -122,6 +122,7 @@ def main()-> None:
                           command=flip_card, highlightbackground=BACKGROUND_COLOR)
     wrong_button.grid(row=2,column=0)
 
+    #global FLIP_TIMER
     #FLIP_TIMER = window.after(3000, func=flip_card)
     next_card()
 

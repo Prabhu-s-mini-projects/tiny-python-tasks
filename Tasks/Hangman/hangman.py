@@ -41,7 +41,6 @@ while lives > 0 and '_' in guess_word:
                 if guessed_letter == word[position]:
                     guess_word[position] = guessed_letter
                     print(f"{ letter = } ")
-                    
     else:
         lives -= 1
         print(f'\n Remaining lives : {lives}')
