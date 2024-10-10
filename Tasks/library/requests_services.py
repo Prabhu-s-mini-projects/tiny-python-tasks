@@ -1,5 +1,7 @@
 """ Contains all the utils methods """
 # Dependencies
+from pprint import pprint
+
 import requests
 
 
@@ -17,7 +19,7 @@ def response_handler(func):
             response = func(*args, **kwargs)
             print(f"URL: {response.url}")
             print(f"Status Code: {response.status_code}")
-            print(f"{response.text = }")
+            pprint(response.text)
 
             # Raise exception for bad status codes
             response.raise_for_status()

@@ -49,7 +49,7 @@ class LinkedList:
         # Looping until we reach the end of the list
         while current_node.pointer_next:
             current_node = current_node.pointer_next
-            print(f"{current_node.data}")
+            print(f"{current_node.sheet_data}")
 
 
 class DoubleLinkedList:
@@ -91,7 +91,7 @@ class DoubleLinkedList:
         # Looping until we reach the end of the list
         while current_node.pointer_next:
             current_node = current_node.pointer_next
-            print(f"{current_node.data}")
+            print(f"{current_node.sheet_data}")
 
     def print_tail_to_head(self)-> None:
         """print all the elements from tail to head"""
@@ -102,7 +102,7 @@ class DoubleLinkedList:
 
         while current_node.previous:
             current_node = current_node.previous
-            print(f"{current_node.data}")
+            print(f"{current_node.sheet_data}")
 
     def insert_before_node(self, data, target_node:Node)->  None:
         """
