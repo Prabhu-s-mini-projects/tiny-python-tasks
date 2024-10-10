@@ -78,6 +78,8 @@ def main()-> None:
 
         # Task 3: Check whether user or dealer has Black Jack.
         is_black_jack, winner = controller.is_black_jack(player_cards, dealer_cards)
+        print(f"{ winner = } ")
+        
 
         if not is_black_jack:
             # Task 4: Ask user whether he needs another card. (HIT or STAND)

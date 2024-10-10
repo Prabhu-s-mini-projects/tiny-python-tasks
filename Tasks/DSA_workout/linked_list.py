@@ -7,6 +7,15 @@ class Node:
         self.data = data
         self.pointer_next = pointer_next
 
+    def print_node_data(self) -> None:
+        """print: node value"""
+        print(f"{ self.data = } ")
+
+    def print_next_node(self) -> None:
+        """print Next node"""
+        print(f"{ self.pointer_next = } ")
+
+
 class LinkedList:
     """ Class of singly LINKED LIST data structure"""
 
