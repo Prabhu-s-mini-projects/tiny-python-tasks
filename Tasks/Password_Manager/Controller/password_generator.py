@@ -33,3 +33,7 @@ class PasswordGenerator:
         self.password = "".join(character_list)
 
         return self.password
+
+    def print_password(self) -> None:
+        """print the current password"""
+        print(f"{ self.password = } ")

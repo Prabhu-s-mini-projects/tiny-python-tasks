@@ -1,14 +1,25 @@
 """Contains 2 class MenuItem and Menu Class"""
 class MenuItem:
     """Models each Menu Item."""
-    def __init__(self, name, water, milk, coffee, cost):
-        self.name = name
-        self.cost = cost
+
+    def __init__(self, **kwargs):
+        self.name = kwargs.get('name')
+        self.cost = kwargs.get('cost')
         self.ingredients = {
-            "water": water,
-            "milk": milk,
-            "coffee": coffee
+            "water": kwargs.get('water'),
+            "milk": kwargs.get('milk'),
+            "coffee": kwargs.get('coffee')
         }
+
+    def required_ingredients(self) -> None:
+        """ prints the required ingredients"""
+        print(f"{ self.ingredients = } ")
+
+    def print_details(self) -> None:
+        """print all the variables """
+        print(f"{ self.name = } ")
+        print(self.ingredients)
+        print(f"{ self.cost = } ")
 
 class Menu:
     """Models the Menu with drinks."""
@@ -26,7 +37,7 @@ class Menu:
             options += f"{item.name}/"
         return options
 
-    def find_drink(self, order_name:str) -> MenuItem:
+    def find_drink(self, order_name: str) -> MenuItem | None:
         """
         Searches the menu for a particular drink by name.
         Returns that item if it exists, otherwise returns None
@@ -35,3 +46,4 @@ class Menu:
             if item.name == order_name:
                 return item
         print("Sorry that item is not available.")
+        return None

@@ -95,11 +95,12 @@ def perform_task(user_ask) -> bool:
 
             if is_transaction_successful(order.get('cost'), payment):
 
+                total_total_money: float = 0.0
                 print(f"Before purchasing {user_ask}")
                 report()
 
-                global money_in_bank
-                money_in_bank += order.get('cost')
+                # global money_in_bank
+                total_total_money += order.get('cost')
 
                 make_order(order)
 

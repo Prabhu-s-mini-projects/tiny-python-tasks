@@ -79,11 +79,7 @@ def main()-> None:
         # Task 3: Check whether user or dealer has Black Jack.
         is_black_jack, winner = controller.is_black_jack(player_cards, dealer_cards)
 
-        if is_black_jack:
-            # if yes game. print the winner and game over.
-            print(f"\n {winner}")
-            game_over = True
-        else:
+        if not is_black_jack:
             # Task 4: Ask user whether he needs another card. (HIT or STAND)
             hit_or_stand = input("\t'HIT' or 'STAND' :\t").lower()
 
@@ -132,6 +128,7 @@ def main()-> None:
 
             another_game = input("Do you want to play another came :\t"
                                  " 'y' for Yes or 'any key' for No\n").lower()
+
 
 if __name__ == "__main__":
     main()

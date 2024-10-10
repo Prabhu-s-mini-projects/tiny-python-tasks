@@ -55,6 +55,7 @@ def main()-> None:
         # Generate a password
         password_generator = PasswordGenerator()
         password = password_generator.generate()
+        password_generator.print_password()
 
         # Updating the password
         entered_password.insert(0, password)
