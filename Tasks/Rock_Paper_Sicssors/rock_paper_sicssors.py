@@ -80,9 +80,10 @@ def main()-> None:
         print(f"GAME HANDLER:\t{player_name} chosen :{hand_gestures[user_choice]}")
         print(f"GAME HANDLER:\tComputer chosen: {hand_gestures[computer_choice]}")
 
-        if (user_choice == 0 and computer_choice == 2
-                or user_choice == 1 and computer_choice == 0
-                or user_choice == 2 and computer_choice == 1):
+        if (user_choice - computer_choice) % 3 == 1:
+            # user_choice == 0 and computer_choice == 2
+            # or user_choice == 1 and computer_choice == 0
+            # or user_choice == 2 and computer_choice == 1):
             user_win = True
     else:
         print(f"\nGAME HANDLER: You need to enter either 0 or 1 or 2 not :{user_choice}")
