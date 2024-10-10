@@ -9,7 +9,7 @@ to achieve the program requirements
 # Internal modules
 from data_manager import DataManager
 from flight_data import FlightData
-
+from flight_search import FlightSearch
 # CONSTANTS
 
 # Methods-------------------------------------------------------------------
@@ -23,7 +23,6 @@ def main() -> None:
     data_manager.print_data()
 
     if sheet_data[0]["iataCode"] == "":
-        from flight_search import FlightSearch
         flight_search = FlightSearch()
         for row in sheet_data:
             row["iataCode"] = flight_search.get_destination_code(row["city"])
@@ -32,7 +31,6 @@ def main() -> None:
         data_manager.sheet_data = sheet_data
         data_manager.update_destination_codes()
 
-    
 
 if __name__ == '__main__':
     main()

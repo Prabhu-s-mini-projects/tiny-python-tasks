@@ -1,8 +1,5 @@
-prettytable~=3.11.0
-heroes~=1.0.2
-villains~=1.0.3
 pandas~=2.2.2
 pyperclip~=1.9.0
 requests~=2.32.3
 twilio~=9.3.2
-colorgram.py~=1.2.0
+python-dotenv~=1.0.1
