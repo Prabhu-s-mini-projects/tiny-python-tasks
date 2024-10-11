@@ -32,7 +32,7 @@ class DataManager:
 
         return self.sheet_data
 
-    def print_data(self, data: dict = None) -> None:
+    def print_data(self) -> None:
         """uses pprint to print the data"""
         pprint(self.sheet_data)
 
