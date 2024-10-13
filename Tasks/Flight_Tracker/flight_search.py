@@ -60,7 +60,10 @@ class FlightSearch:
 
         request_service = RequestService(default_headers=header)
 
-        response = request_service.get(url=f'{END_POINT}/reference-data/locations/cities', data_params=body)
+        response = request_service.get(
+            url=f'{END_POINT}/reference-data/locations/cities',
+                                       data_params=body
+        )
 
         json_response = response.json()
 

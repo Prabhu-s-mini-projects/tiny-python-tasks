@@ -3,7 +3,7 @@
 from turtle import Turtle, Screen
 import random
 import turtle
-import colorgram
+from colorgram import colorgram
 
 
 
