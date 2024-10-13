@@ -1,10 +1,10 @@
 """Main script of Hirst painting """
 
-from turtle import Turtle, Screen
 import random
 import turtle
-from colorgram import colorgram
+from turtle import Turtle, Screen
 
+from colorgram import colorgram
 
 
 def extract_color()-> list:
