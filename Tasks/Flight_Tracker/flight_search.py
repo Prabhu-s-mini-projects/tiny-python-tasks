@@ -71,7 +71,7 @@ class FlightSearch:
         code = json_response.get('data')[0].get('iataCode')
 
         return code
-    
+
     def find_cheapest_flight(self, **kwargs)-> dict:
         """ Uses the API and looks for the data """
         header = {
