@@ -44,7 +44,7 @@ class DataManager:
         for price in prices:
             new_data = {
                 "price": {
-                    "iataCode": "testing"
+                    "iataCode": price.get('iataCode')
                 }
             }
 
