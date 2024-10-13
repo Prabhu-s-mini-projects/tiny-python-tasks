@@ -1,6 +1,7 @@
 """Contains food class"""
-import  turtle as controller
 import random
+import turtle as controller
+
 
 class Food(controller.Turtle):
     """
@@ -13,6 +14,11 @@ class Food(controller.Turtle):
         self.penup()
         self.shapesize(stretch_len=0.5,stretch_wid=0.5)
         self.refresh()
+
+    def return_shape(self) -> None:
+        """ created a dummy method"""
+        print(random.randint(0, 5))
+        print(random.randint(5, 9))
 
     def refresh(self)-> None:
         """Goes to new location"""

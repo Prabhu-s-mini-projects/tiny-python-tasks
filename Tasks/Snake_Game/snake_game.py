@@ -61,7 +61,7 @@ def main()-> None:
         # Detecting the tail.
         for segment in snake.snake_body:
             if segment.position() == snake.head.position():
-                pass
+                food.return_shape()  # Dummy method aka pass
             elif snake.head.distance(segment) < 10:
                 game_over = game_over_sequence()
 
