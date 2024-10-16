@@ -1,0 +1,11 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Editor{
+    -contents:str
+    +void contents(new_content:str)
+    +str contents()
+}
+
+
+@enduml
