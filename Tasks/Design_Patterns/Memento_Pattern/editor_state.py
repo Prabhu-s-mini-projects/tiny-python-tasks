@@ -23,3 +23,8 @@ class EditorState:
     def content(self) -> str:
         """ getter method for contents."""
         return self._content
+
+    @content.setter
+    def content(self, new_content: str) -> None:
+        """ Setter method for contents."""
+        self._content = new_content
