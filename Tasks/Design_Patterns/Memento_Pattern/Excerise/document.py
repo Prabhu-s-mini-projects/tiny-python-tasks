@@ -2,13 +2,8 @@
 Class Name: Document.py
 Blue+print of:all user to add content in the document
 """
-
-
-# Dependencies
-
 # Internal Dependencies
-
-# CONSTANTS
+from Tasks.Design_Patterns.Memento_Pattern.Excerise.document_state import DocumentState
 
 class Document:
     """
@@ -43,7 +38,7 @@ class Document:
     @property
     def font_name(self) -> str:
         """ getter method for contents."""
-        return self._content
+        return self._font_name
 
     @font_name.setter
     def font_name(self, font_name: str) -> None:
@@ -60,6 +55,16 @@ class Document:
         """ Setter method for contents."""
         self._font_size = font_size
 
-    def create_state(self) -> None:
+    def create_state(self) -> DocumentState:
         """ To perform: creates a state of the object"""
-        pass
+        return DocumentState(
+            font_size=self._font_size,
+            font_name=self._font_name,
+            content=self._content
+        )
+
+    def restore(self, state: DocumentState) -> None:
+        """ reassign the value to restore state"""
+        self._content = state.content
+        self._font_name = state.font_name
+        self._font_size = state.font_size
