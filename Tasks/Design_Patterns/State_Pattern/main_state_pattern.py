@@ -19,8 +19,8 @@ def main() -> None:
     to do Example of a state pattern
     """
     # To do
-    canvas =  Canvas()
-    
+    canvas = Canvas()
+
     canvas.current_tool = SelectionTool()
     canvas.mouse_down()
     canvas.mouse_up()
