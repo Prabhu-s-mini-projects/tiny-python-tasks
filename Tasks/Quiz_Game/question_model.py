@@ -6,10 +6,10 @@ class Question:
         self.question = question
         self.answer = answer
 
-    def question(self) -> None:
+    def q_question(self) -> None:
         """print question"""
         print(f"{ self.question = } ")
 
-    def answer(self) -> None:
+    def a_answer(self) -> None:
         """print question"""
         print(f"{ self.answer = } ")
