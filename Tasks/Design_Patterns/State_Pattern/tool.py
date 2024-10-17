@@ -17,14 +17,13 @@ class Tool(ABC):
 
     Methods:
         mouse_down :
+        mouse_up:
     """
 
     @abstractmethod
     def mouse_down(self) -> None:
         """ To perform: """
-        pass
 
     @abstractmethod
     def mouse_up(self) -> None:
         """ To perform: """
-        pass
