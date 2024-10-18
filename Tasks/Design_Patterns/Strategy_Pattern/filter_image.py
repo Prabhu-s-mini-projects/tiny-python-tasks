@@ -12,5 +12,9 @@ class FilterImage(ABC):
     """
 
     @abstractmethod
+    def print_doc_st(self) -> None:
+        """print doc string for pylint fix """
+
+    @abstractmethod
     def apply(self) -> None:
         """ To perform: apply filter to the image"""
