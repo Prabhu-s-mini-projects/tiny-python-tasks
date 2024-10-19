@@ -2,74 +2,66 @@
 # Dependencies
 import json
 from tkinter import Tk, Label, Canvas, PhotoImage, Entry, Button
-from tkinter import messagebox, END  # message box is not a class.
-
-# So we need to import separately.
-import pyperclip
+from tkinter import messagebox  # message box is not a class.
 
 # Internal modules
 from Controller.password_generator import PasswordGenerator
+
+# So we need to import separately.
 
 # CONSTANTS
 LOGO_PATH = "Database/logo.png"
 
 
-# ---------------------------- UI SETUP ------------------------------- #
+# ---------------------------- PASSWORD GENERATOR ------------------------------- #
+def generate_password() -> str:
+    """generates password"""
 
-def main()-> None:
-    """Start of a program"""
+    # Generate a password
+    password_generator = PasswordGenerator()
+    password = password_generator.generate()
+    password_generator.print_password()
+    return password
 
-    # ---------------------------- Search  ------------------------------- #
-    def search() -> None:
-        """search for the entire password in the JSON"""
 
-        # Fetch the website name
-        website = entered_website.get()
+# ---------------------------- Search  ------------------------------- #
+def search(website: str) -> None:
+    """search for the entire password in the JSON"""
 
-        try:  # For the first time JSON file is not available or deleted
+    try:  # For the first time JSON file is not available or deleted
 
-            # reading the stored Passwords
-            with open("passwords.json", 'r', encoding='utf-8') as json_file:
-                data = json.load(json_file)
+        # reading the stored Passwords
+        with open("passwords.json", 'r', encoding='utf-8') as json_file:
+            data = json.load(json_file)
 
-        except FileNotFoundError:
+    except FileNotFoundError:
+        messagebox.showinfo(title="NOT FOUND",
+                            message="Entered Website is not in database\n")
+
+    else:
+
+        if website.lower() in data.keys():
+            credentials = data.get(website.lower())
+            messagebox.showinfo(title=website,
+                                message="Here are the Credentials\n"
+                                        f"Email : {credentials.get('email')}\n"
+                                        f"password: {credentials.get('password')}")
+        else:
             messagebox.showinfo(title="NOT FOUND",
                                 message="Entered Website is not in database\n")
 
-        else:
 
-            if website.lower() in data.keys():
-                credentials = data.get(website.lower())
-                messagebox.showinfo(title=website,
-                                    message="Here are the Credentials\n"
-                                           f"Email : {credentials.get('email')}\n"
-                                           f"password: {credentials.get('password')}")
-            else:
-                messagebox.showinfo(title="NOT FOUND",
-                                    message="Entered Website is not in database\n")
+# ---------------------------- UI SETUP ------------------------------- #
 
-    # ---------------------------- PASSWORD GENERATOR ------------------------------- #
-    def generate_password() -> None:
-        """generates password"""
-
-        # Generate a password
-        password_generator = PasswordGenerator()
-        password = password_generator.generate()
-        password_generator.print_password()
-
-        # Updating the password
-        entered_password.insert(0, password)
-
-        # Storing the password in clipboard
-        pyperclip.copy(password)
-
+def main() -> None:
+    """Start of a program"""
     # ---------------------------- SAVE PASSWORD ------------------------------- #
 
     def save() -> None:
         """save the password to JSON file"""
 
         # Fetching the data from the list
-        password = entered_password.get()
+        enter_password = entered_password.get()
         website = entered_website.get()
         email = entered_email.get()
 
@@ -77,7 +69,7 @@ def main()-> None:
         new_data = {
             website.lower(): {
                 "email": email,
-                "password": password
+                "password": enter_password
             }
         }
 
@@ -99,22 +91,23 @@ def main()-> None:
                 try:
                     with open("passwords.json", 'r', encoding="utf-8") as json_file:
                         data = json.load(json_file)
+                        print(f"{ data = } ")
 
                 except FileNotFoundError:
                     with open("passwords.json", "w", encoding="utf-8") as file:
                         json.dump(file, new_data, indent=4)
-                else:
-
-                    # updating the data
-                    data.update(new_data)
-
-                    # writing the data
-                    with open("passwords.json", 'w', encoding="utf-8") as json_file:
-                        json.dump(json_file, data, indent=4)
+            #   else:
+            #
+            #         # updating the data
+            #         data.update(new_data)
+            #
+            #         # writing the data
+            #         with open("passwords.json", 'w', encoding="utf-8") as json_file:
+            #             json.dump(json_file, data, indent=4)
 
                 # Deletes the data in the text box.
-                entered_website.delete(0, END)
-                entered_password.delete(0, END)
+            entered_website.delete(0)  # END)
+            entered_password.delete(0)  # END)
 
     # Creating a window
     window = Tk()
@@ -168,6 +161,17 @@ def main()-> None:
     # Creating add button
     add = Button(text="add",width=36,command=save)
     add.grid(row=4,column=1,columnspan=2)
+
+    # Fetch the website name
+    # website = entered_website.get()
+
+    password = generate_password()
+
+    # Updating the password
+    entered_password.insert(0, password)
+
+    # Storing the password in clipboard
+    # pyperclip.copy(password)
 
     #Keep the program running
     window.mainloop()

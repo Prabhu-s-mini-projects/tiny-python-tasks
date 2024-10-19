@@ -66,19 +66,21 @@ def main()-> None:
 
     # ---------------------------- Functionality  ------------------------------- #
 
-    def next_card()-> None:
+    def next_card(current_card=None) -> None:
         """ fetches the next card"""
 
         #pick a random card
-        global CURRENT_CARD
+        # global CURRENT_CARD
 
         # cancel and restart the timer
         # window.after_cancel(FLIP_TIMER)
 
-        if CURRENT_CARD:
+        if current_card is None:
+            current_card = CURRENT_CARD
+        if current_card:
             # global current_card
             # remove the current word
-            dictionary_of_words.remove(CURRENT_CARD)
+            dictionary_of_words.remove(current_card)
 
             # save it to the new file
             # updated_dict = {"French":"English"}
@@ -91,7 +93,7 @@ def main()-> None:
 
         # fetching the random card
         #
-        CURRENT_CARD = random.choice(dictionary_of_words)
+        current_card = random.choice(dictionary_of_words)
         french_word = CURRENT_CARD.get("French")
 
         # Changes the value of the item inside a canvas

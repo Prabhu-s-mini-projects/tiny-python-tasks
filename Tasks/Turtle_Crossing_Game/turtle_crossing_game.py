@@ -19,7 +19,7 @@ def main()-> None:
     game_window.tracer(0)
 
     # Create the objects of the games
-    scoreboard = Scoreboard()
+    scoreboard = Scoreboard("0")
     player_turtle = Player()
     car_manager = CarManager()
 
