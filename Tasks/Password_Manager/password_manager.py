@@ -83,20 +83,20 @@ def main() -> None:
                                                                   f"password:{password} \n"
                                                                   f" Please confirm to save ")
 
-            # if is_ok:
-            #
-            #     # Save the data to text file
-            #     with open("passwords.txt", "a", encoding="utf-8") as file:
-            #         file.writelines(f"{website}| {email} | {password}\n")
-            #
-            #     try:
-            #         with open("passwords.json", 'r', encoding="utf-8") as json_file:
-            #             data = json.load(json_file)
-            #
-            #     except FileNotFoundError:
-            #         with open("passwords.json", "w", encoding="utf-8") as file:
-            #             json.dump(file, new_data, indent=4)
-            #     else:
+            if is_ok:
+
+                # Save the data to text file
+                with open("passwords.txt", "a", encoding="utf-8") as file:
+                    file.writelines(f"{website}| {email} | {password}\n")
+
+                try:
+                    with open("passwords.json", 'r', encoding="utf-8") as json_file:
+                        data = json.load(json_file)
+
+                except FileNotFoundError:
+                    with open("passwords.json", "w", encoding="utf-8") as file:
+                        json.dump(file, new_data, indent=4)
+            #    else:
             #
             #         # updating the data
             #         data.update(new_data)
@@ -104,10 +104,10 @@ def main() -> None:
             #         # writing the data
             #         with open("passwords.json", 'w', encoding="utf-8") as json_file:
             #             json.dump(json_file, data, indent=4)
-            #
-            #     # Deletes the data in the text box.
-            #     entered_website.delete(0, END)
-            #     entered_password.delete(0, END)
+
+                # Deletes the data in the text box.
+                entered_website.delete(0, END)
+                entered_password.delete(0, END)
 
     # Creating a window
     window = Tk()
@@ -171,7 +171,7 @@ def main() -> None:
     entered_password.insert(0, password)
 
     # Storing the password in clipboard
-    pyperclip.copy(password)
+    # pyperclip.copy(password)
 
     #Keep the program running
     window.mainloop()
