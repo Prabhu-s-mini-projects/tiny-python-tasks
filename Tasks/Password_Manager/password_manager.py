@@ -92,7 +92,6 @@ def main() -> None:
                     with open("passwords.json", 'r', encoding="utf-8") as json_file:
                         data = json.load(json_file)
                         print(f"{ data = } ")
-                        
 
                 except FileNotFoundError:
                     with open("passwords.json", "w", encoding="utf-8") as file:
