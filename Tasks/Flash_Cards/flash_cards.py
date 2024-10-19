@@ -66,11 +66,11 @@ def main()-> None:
 
     # ---------------------------- Functionality  ------------------------------- #
 
-    def next_card(current_card=None)-> None:
+    def next_card(current_card=None) -> None:
         """ fetches the next card"""
 
         #pick a random card
-        #global CURRENT_CARD
+        # global CURRENT_CARD
 
         # cancel and restart the timer
         # window.after_cancel(FLIP_TIMER)

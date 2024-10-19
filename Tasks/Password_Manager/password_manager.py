@@ -24,8 +24,9 @@ def generate_password() -> str:
     password_generator.print_password()
     return password
 
+
 # ---------------------------- Search  ------------------------------- #
-def search(website:str) -> None:
+def search(website: str) -> None:
     """search for the entire password in the JSON"""
 
     try:  # For the first time JSON file is not available or deleted
@@ -53,7 +54,7 @@ def search(website:str) -> None:
 
 # ---------------------------- UI SETUP ------------------------------- #
 
-def main()-> None:
+def main() -> None:
     """Start of a program"""
     # ---------------------------- SAVE PASSWORD ------------------------------- #
 
@@ -163,8 +164,6 @@ def main()-> None:
 
     # Fetch the website name
     website = entered_website.get()
-
-
 
     password = generate_password()
 
