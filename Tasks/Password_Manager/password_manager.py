@@ -91,11 +91,13 @@ def main() -> None:
                 try:
                     with open("passwords.json", 'r', encoding="utf-8") as json_file:
                         data = json.load(json_file)
+                        print(f"{ data = } ")
+                        
 
                 except FileNotFoundError:
                     with open("passwords.json", "w", encoding="utf-8") as file:
                         json.dump(file, new_data, indent=4)
-                #    else:
+            #   else:
             #
             #         # updating the data
             #         data.update(new_data)
@@ -105,8 +107,8 @@ def main() -> None:
             #             json.dump(json_file, data, indent=4)
 
                 # Deletes the data in the text box.
-                entered_website.delete(0, END)
-                entered_password.delete(0, END)
+            entered_website.delete(0)  # END)
+            entered_password.delete(0)  # END)
 
     # Creating a window
     window = Tk()
