@@ -26,10 +26,26 @@ class ChatClient:
         """ To perform: encryption and send the command"""
         encryption = ADSAlgorithm()
         encryption.encrypt()
+        print(f"{ self.encryption_algorithm = } ")
 
         # replace by above strategy pattern approach
         # if self.encryption_algorithm =="DES":
-        #     print("Encrypting the message using DES algorithm")
+        #     print ("Encrypting the message using DES algorithm")
+        # elif self.encryption_algorithm == "ADS":
+        #     print("Encrypting the message using ADS")
+        # else:
+        #     print("Error")
+
+        print(f"Sending the encrypted message... {message}")
+
+    def receive(self, message: str) -> None:
+        """ To perform: encryption and send the command"""
+        decryption = ADSAlgorithm()
+        decryption.decrypt()
+        print(f"{ self.encryption_algorithm = } ")
+        # replace by above strategy pattern approach
+        # if self.encryption_algorithm =="DES":
+        #     print ("Encrypting the message using DES algorithm")
         # elif self.encryption_algorithm == "ADS":
         #     print("Encrypting the message using ADS")
         # else:

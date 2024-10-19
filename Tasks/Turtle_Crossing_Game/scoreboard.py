@@ -14,8 +14,8 @@ class Scoreboard(Turtle):
     Creates an instance to maintain the score
     """
 
-    def __init__(self):
-        super().__init__()
+    def __init__(self,side='0'):
+        super().__init__(side)
         self.penup()
         self.color("white")
         self.level = 0

@@ -14,62 +14,54 @@ from Controller.password_generator import PasswordGenerator
 LOGO_PATH = "Database/logo.png"
 
 
+# ---------------------------- PASSWORD GENERATOR ------------------------------- #
+def generate_password() -> str:
+    """generates password"""
+
+    # Generate a password
+    password_generator = PasswordGenerator()
+    password = password_generator.generate()
+    password_generator.print_password()
+    return password
+
+# ---------------------------- Search  ------------------------------- #
+def search(website:str) -> None:
+    """search for the entire password in the JSON"""
+
+    try:  # For the first time JSON file is not available or deleted
+
+        # reading the stored Passwords
+        with open("passwords.json", 'r', encoding='utf-8') as json_file:
+            data = json.load(json_file)
+
+    except FileNotFoundError:
+        messagebox.showinfo(title="NOT FOUND",
+                            message="Entered Website is not in database\n")
+
+    else:
+
+        if website.lower() in data.keys():
+            credentials = data.get(website.lower())
+            messagebox.showinfo(title=website,
+                                message="Here are the Credentials\n"
+                                        f"Email : {credentials.get('email')}\n"
+                                        f"password: {credentials.get('password')}")
+        else:
+            messagebox.showinfo(title="NOT FOUND",
+                                message="Entered Website is not in database\n")
+
+
 # ---------------------------- UI SETUP ------------------------------- #
 
 def main()-> None:
     """Start of a program"""
-
-    # ---------------------------- Search  ------------------------------- #
-    def search() -> None:
-        """search for the entire password in the JSON"""
-
-        # Fetch the website name
-        website = entered_website.get()
-
-        try:  # For the first time JSON file is not available or deleted
-
-            # reading the stored Passwords
-            with open("passwords.json", 'r', encoding='utf-8') as json_file:
-                data = json.load(json_file)
-
-        except FileNotFoundError:
-            messagebox.showinfo(title="NOT FOUND",
-                                message="Entered Website is not in database\n")
-
-        else:
-
-            if website.lower() in data.keys():
-                credentials = data.get(website.lower())
-                messagebox.showinfo(title=website,
-                                    message="Here are the Credentials\n"
-                                           f"Email : {credentials.get('email')}\n"
-                                           f"password: {credentials.get('password')}")
-            else:
-                messagebox.showinfo(title="NOT FOUND",
-                                    message="Entered Website is not in database\n")
-
-    # ---------------------------- PASSWORD GENERATOR ------------------------------- #
-    def generate_password() -> None:
-        """generates password"""
-
-        # Generate a password
-        password_generator = PasswordGenerator()
-        password = password_generator.generate()
-        password_generator.print_password()
-
-        # Updating the password
-        entered_password.insert(0, password)
-
-        # Storing the password in clipboard
-        pyperclip.copy(password)
-
     # ---------------------------- SAVE PASSWORD ------------------------------- #
 
     def save() -> None:
         """save the password to JSON file"""
 
         # Fetching the data from the list
-        password = entered_password.get()
+        enter_password = entered_password.get()
         website = entered_website.get()
         email = entered_email.get()
 
@@ -77,7 +69,7 @@ def main()-> None:
         new_data = {
             website.lower(): {
                 "email": email,
-                "password": password
+                "password": enter_password
             }
         }
 
@@ -168,6 +160,19 @@ def main()-> None:
     # Creating add button
     add = Button(text="add",width=36,command=save)
     add.grid(row=4,column=1,columnspan=2)
+
+    # Fetch the website name
+    website = entered_website.get()
+
+
+
+    password = generate_password()
+
+    # Updating the password
+    entered_password.insert(0, password)
+
+    # Storing the password in clipboard
+    pyperclip.copy(password)
 
     #Keep the program running
     window.mainloop()
