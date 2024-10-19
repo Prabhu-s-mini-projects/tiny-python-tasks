@@ -4,11 +4,10 @@ import json
 from tkinter import Tk, Label, Canvas, PhotoImage, Entry, Button
 from tkinter import messagebox  # message box is not a class.
 
-# So we need to import separately.
-import pyperclip
-
 # Internal modules
 from Controller.password_generator import PasswordGenerator
+
+# So we need to import separately.
 
 # CONSTANTS
 LOGO_PATH = "Database/logo.png"
@@ -96,7 +95,7 @@ def main() -> None:
                 except FileNotFoundError:
                     with open("passwords.json", "w", encoding="utf-8") as file:
                         json.dump(file, new_data, indent=4)
-            #    else:
+                #    else:
             #
             #         # updating the data
             #         data.update(new_data)
