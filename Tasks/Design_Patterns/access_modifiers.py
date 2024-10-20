@@ -44,6 +44,11 @@ class AccessModifiers:
         """ To perform: '__' indicates it's a private method or a members"""
         print(f"public Method that any one  {self.public_member}")
 
+        # W0238: Unused private member
+        # `AccessModifiers.__private_method(self)`
+        # (unused-private-member)
+        self.__private_method()
+
     def public_method_2(self) -> None:
         """ To perform: '__' indicates it's a private method or a members"""
         print(f"public Method that any one  {self.__private_member}")
