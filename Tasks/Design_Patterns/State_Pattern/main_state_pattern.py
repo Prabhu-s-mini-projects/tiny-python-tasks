@@ -19,6 +19,13 @@ def main() -> None:
     to do Example of a state pattern
     """
     # To do
+    print(
+        """
+        State Pattern:
+        It's a behavioral design pattern that lets an object alter its behavior when its internal state changes.
+        It appears as if the object changed its class.
+        """
+    )
     canvas = Canvas()
 
     canvas.current_tool = SelectionTool()
