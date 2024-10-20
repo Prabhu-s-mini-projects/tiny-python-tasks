@@ -26,12 +26,16 @@ class Tasks(ABC):
         self.task_recorder: Recorder = Recorder()
 
     def execute(self) -> None:
-        """ To perform: """
+        """ To perform: the following steps """
         self.task_recorder.start_record()
 
         self._do_execute()  # will be defined by child class
 
         self.task_recorder.stop_record()
+
+    def dummy(self) -> None:
+        """ To perform: the following steps """
+        print("dummy")
 
     @abstractmethod
     def _do_execute(self) -> None:
