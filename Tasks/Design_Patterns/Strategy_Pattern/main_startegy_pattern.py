@@ -16,6 +16,13 @@ def main() -> None:
     to do Contains implementation of a strategy pattern
     """
     # To do
+    print(
+        """
+        Strategy Pattern: 
+        It's a behavioral design pattern that lets you define a family of algorithms,
+        put each of them into a separate class, and make their objects interchangeable.
+        """
+    )
     image_storage = ImageStorage()
     image_storage.store("newfile", JPEGCompressor(), BWFilter())
     # image_storage.store("newfile", "PNG", "B&W filter")
