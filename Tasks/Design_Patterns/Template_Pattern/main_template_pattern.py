@@ -21,8 +21,10 @@ def main() -> None:
     print(
         """
         Template Method:
-        It's a behavioral design pattern that defines the skeleton of an algorithm in the superclass,
-        but, lets subclasses override specific steps of the algorithm without changing its structure.
+        It's a behavioral design pattern that
+        defines the skeleton of an algorithm in the superclass,
+        but, lets subclasses override specific steps of the algorithm
+        without changing its structure.
         """
     )
 

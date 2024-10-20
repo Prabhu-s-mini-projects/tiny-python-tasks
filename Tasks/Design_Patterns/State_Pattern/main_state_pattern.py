@@ -22,7 +22,8 @@ def main() -> None:
     print(
         """
         State Pattern:
-        It's a behavioral design pattern that lets an object alter its behavior when its internal state changes.
+        It's a behavioral design pattern that 
+        lets an object alter its behavior when its internal state changes.
         It appears as if the object changed its class.
         """
     )

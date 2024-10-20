@@ -40,6 +40,10 @@ class AccessModifiers:
         """ To perform: '__' indicates it's a private method or a members"""
         print(f"_protected Method that can be access {self._protected_member}")
 
-    def public_method(self) -> None:
+    def public_method_1(self) -> None:
         """ To perform: '__' indicates it's a private method or a members"""
         print(f"public Method that any one  {self.public_member}")
+
+    def public_method_2(self) -> None:
+        """ To perform: '__' indicates it's a private method or a members"""
+        print(f"public Method that any one  {self.__private_member}")
