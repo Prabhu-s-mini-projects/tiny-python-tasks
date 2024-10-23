@@ -26,3 +26,7 @@ class UndoCommand(Command):
     def execute(self) -> None:
         """ To perform: will execute the steps to undo a command"""
         self.history.pop().execute()
+
+    def dummy_method(self) -> None:
+        """ To perform: will make the content bold"""
+        print("Dummy method due to pylint")

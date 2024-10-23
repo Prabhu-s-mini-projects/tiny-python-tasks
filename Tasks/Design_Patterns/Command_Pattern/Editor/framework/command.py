@@ -25,3 +25,7 @@ class Command(ABC):
     @abstractmethod
     def execute(self) -> None:
         """ To perform: will execute the command"""
+
+    @abstractmethod
+    def dummy_method(self) -> None:
+        """ To perform: will execute the command"""

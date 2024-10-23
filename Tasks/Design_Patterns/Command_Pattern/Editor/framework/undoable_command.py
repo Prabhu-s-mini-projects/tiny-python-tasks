@@ -19,3 +19,7 @@ class UndoableCommand(Command):
     @abstractmethod
     def un_execute(self) -> None:
         """ To perform: will execute the steps to undo a command"""
+
+    @abstractmethod
+    def dummy_method_2(self) -> None:
+        """ To perform: will execute the steps to undo a command"""

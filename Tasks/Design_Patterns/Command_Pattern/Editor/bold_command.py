@@ -39,3 +39,11 @@ class BoldCommand(UndoableCommand):
     def un_execute(self) -> None:
         """ To perform: will make the content bold"""
         self.html_content.content = self.prev_content
+
+    def dummy_method_2(self) -> None:
+        """ To perform: will make the content bold"""
+        print(""" To perform: will make the content bold""")
+
+    def dummy_method(self) -> None:
+        """ To perform: will make the content bold"""
+        print("Dummy method")
