@@ -5,6 +5,7 @@ Purpose: allows user to edit and contents of aH TML file using the Undo-command 
 from Tasks.Design_Patterns.Command_Pattern.Editor.bold_command import BoldCommand
 from Tasks.Design_Patterns.Command_Pattern.Editor.history import History
 from Tasks.Design_Patterns.Command_Pattern.Editor.html_document import HtmlDocument
+from Tasks.Design_Patterns.Command_Pattern.Editor.undo_command import UndoCommand
 
 
 # Dependencies
@@ -28,6 +29,7 @@ def main() -> None:
         """
     )
     history = History()
+    undo_command = UndoCommand(history=history)
     document = HtmlDocument()
     document.content = "hello World"
 
@@ -41,7 +43,7 @@ def main() -> None:
     bold_command.execute()
     print(f"{ document.content = } ")
 
-    bold_command.un_execute()
+    undo_command.execute()
     print(f"{ document.content = } ")
 
 
