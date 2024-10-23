@@ -85,3 +85,6 @@ To run python code to run on cloud services for free
 ## MISC reference
 - [Find your latitude and longitude](https://www.latlong.net/Show-Latitude-Longitude.html)
 - [HTML Entities](https://www.w3schools.com/html/html_entities.asp)
+- [Named Color Color Hunt](https://developer.mozilla.org/en-US/docs/Web/CSS/named-color)
+- [RGB Mixer](https://www.csfieldguide.org.nz/en/interactives/rgb-mixer/)
+- 
