@@ -20,11 +20,11 @@ class SpreadSheet(Observer):
             total : int
         """
         self.total: int = kwargs.get("total")
-        self._value_from_dataSource = self.update()
+        self.value_from_dataSource = self.update()
 
     def calculate_sum(self) -> None:
         """ To perform: adds 5 to value from data sources"""
-        self.total = self._value_from_dataSource
+        self.total = self.value_from_dataSource
 
     def update(self) -> int:
         """ updates the value in a spreadsheet"""
