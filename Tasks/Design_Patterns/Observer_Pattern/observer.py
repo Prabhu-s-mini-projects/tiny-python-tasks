@@ -5,7 +5,8 @@ Blue+print of:abstract class to implement an obsever
 # Dependencies
 from abc import ABC, abstractmethod
 
-class Observer:
+
+class Observer(ABC):
     """
     Purpose: Blueprint of abstract class to implement an obsever
     Methods:
