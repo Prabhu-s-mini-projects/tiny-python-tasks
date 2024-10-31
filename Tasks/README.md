@@ -59,6 +59,7 @@ Rules:
   - [HTTP status codes ](https://www.webfx.com/web-development/glossary/http-status-codes/)
 - HTML
   - to unpack a values from json files
+  - [Beautiful Soup Documentation](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
   
 ## Services:
 
