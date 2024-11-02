@@ -30,7 +30,7 @@ def main() -> None:
     print(soup.title.string)
     print(soup.find_all(name='a'))
 
-    response = requests.get(WEBSITE_URL)
+    response = requests.get(WEBSITE_URL, timeout=10)
     y_combinator = response.text
 
     soup = BeautifulSoup(y_combinator, "html.parser")
