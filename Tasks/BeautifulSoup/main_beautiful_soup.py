@@ -40,7 +40,31 @@ def main() -> None:
     movie_titles = soup.find_all("a", class_="storylink")
     for movie_title in movie_titles:
         print(movie_title.getText())
+        print(f"{ movie_title.get("href") = } ")
+        
 
+    # movie_upvotes = soup.find_all("span", class_="score")
+    #
+    # for movie_upvote in movie_upvotes:
+    #     print(f"{ int(movie_upvote.getText().split()[0]) = } ")
+
+
+A_website_url = "https://www.empireonline.com/movies/features/best-movies-2/"
+
+response =  requests.get(A_website_url)
+
+soup = BeautifulSoup(response.text,"html.parser")
+
+movie_titles =[movie_title.getText()
+               for movie_title in soup.find_all("h3",
+                                                class_="listicleItem_listicle-item__title__BfenH"
+                                                )
+               ]
+movie_titles.reverse()
+
+with open("movies.txt","w",encoding="utf-8") as file:
+    for movie_title in movie_titles:
+        file.write(f"{movie_title}\n")
 
 if __name__ == '__main__':
     main()
