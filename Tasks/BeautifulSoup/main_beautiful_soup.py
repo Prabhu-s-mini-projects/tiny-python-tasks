@@ -2,8 +2,6 @@
 App_Name: BeautifulSoup_module
 Purpose: contains an example of how to use the beautiful soup api
 """
-from asyncio import timeout
-
 import requests
 # Dependencies
 from bs4 import BeautifulSoup
@@ -12,7 +10,7 @@ from bs4 import BeautifulSoup
 
 # CONSTANTS
 WEBSITE_URL = "https://appbrewery.github.io/news.ycombinator.com/"
-
+EMPIRE_WEBSITE_URL = "https://www.empireonline.com/movies/features/best-movies-2/"
 
 # Methods-------------------------------------------------------------------
 
@@ -49,22 +47,21 @@ def main() -> None:
     # for movie_upvote in movie_upvotes:
     #     print(f"{ int(movie_upvote.getText().split()[0]) = } ")
 
-    A_website_url = "https://www.empireonline.com/movies/features/best-movies-2/"
-
-    response =  requests.get(A_website_url,timeout=10)
+    response =  requests.get(EMPIRE_WEBSITE_URL,timeout=10)
 
     soup = BeautifulSoup(response.text,"html.parser")
 
-    movie_titles =[movie_title.getText()
-                   for movie_title in soup.find_all("h3",
-                                                    class_="listicleItem_listicle-item__title__BfenH"
-                                                    )
+    titles =[movie_title.getText()
+                   for movie_title in soup.find_all(
+                        "h3",
+                        class_="listicleItem_listicle-item__title__BfenH"
+                    )
                    ]
-    movie_titles.reverse()
+    titles.reverse()
 
-with open("movies.txt","w",encoding="utf-8") as file:
-    for movie_title in movie_titles:
-        file.write(f"{movie_title}\n")
+    with open("movies.txt","w",encoding="utf-8") as f:
+        for title in titles:
+            f.write(f"{title}\n")
 
 if __name__ == '__main__':
     main()
