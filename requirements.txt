@@ -4,6 +4,7 @@ twilio~=9.3.2
 python-dotenv~=1.0.1
 bs4~=0.0.2
 beautifulsoup4~=4.13.0b2
+spotipy~=2.24.0
 colorgram.py~=1.2.0
 heroes~=1.0.2
 villains~=1.0.3
