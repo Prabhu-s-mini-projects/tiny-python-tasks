@@ -45,6 +45,8 @@ def main() -> None:
     )
 
     user_id = sp.current_user()["id"]
+    print(f"{ user_id = } ")
+    
 
     entered_date = input("Which year do you want to travel to?\n" +
                          "Enter the date in this format YYYY:MM:DD :")
