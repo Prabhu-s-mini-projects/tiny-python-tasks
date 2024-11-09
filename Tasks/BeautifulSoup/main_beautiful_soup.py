@@ -10,7 +10,7 @@ from bs4 import BeautifulSoup
 
 # CONSTANTS
 WEBSITE_URL = "https://appbrewery.github.io/news.ycombinator.com/"
-
+EMPIRE_WEBSITE_URL = "https://www.empireonline.com/movies/features/best-movies-2/"
 
 # Methods-------------------------------------------------------------------
 
@@ -40,7 +40,28 @@ def main() -> None:
     movie_titles = soup.find_all("a", class_="storylink")
     for movie_title in movie_titles:
         print(movie_title.getText())
+        print(f"{ movie_title.get("href") = } ")
 
+    # movie_upvotes = soup.find_all("span", class_="score")
+    #
+    # for movie_upvote in movie_upvotes:
+    #     print(f"{ int(movie_upvote.getText().split()[0]) = } ")
+
+    response =  requests.get(EMPIRE_WEBSITE_URL,timeout=10)
+
+    soup = BeautifulSoup(response.text,"html.parser")
+
+    titles =[movie_title.getText()
+                   for movie_title in soup.find_all(
+                        "h3",
+                        class_="listicleItem_listicle-item__title__BfenH"
+                    )
+                   ]
+    titles.reverse()
+
+    with open("movies.txt","w",encoding="utf-8") as f:
+        for title in titles:
+            f.write(f"{title}\n")
 
 if __name__ == '__main__':
     main()
