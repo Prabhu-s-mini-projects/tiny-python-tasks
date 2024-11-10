@@ -43,8 +43,10 @@ def main() -> None:
         if time() > timeout:
             # To do
             cookies_count = driver.find_element(By.ID, "cookies").text
+            print(cookies_count)
 
             store = driver.find_element(By.ID, "store")
+            print(store)
 
             # Reset time
             timeout = time() + 5
