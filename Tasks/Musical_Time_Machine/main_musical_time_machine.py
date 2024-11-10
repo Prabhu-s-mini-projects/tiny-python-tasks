@@ -4,11 +4,12 @@ Purpose: Enter the date will create a spotify playlist with top 5 songs of that 
 """
 # Dependencies
 import os
+
 import requests
-from bs4 import BeautifulSoup
 # from spotipy import Spotify
 # from spotipy import SpotifyOAuth
 import spotipy
+from bs4 import BeautifulSoup
 from spotipy.oauth2 import SpotifyOAuth
 
 # Internal modules
@@ -46,7 +47,6 @@ def main() -> None:
 
     user_id = sp.current_user()["id"]
     print(f"{ user_id = } ")
-    
 
     entered_date = input("Which year do you want to travel to?\n" +
                          "Enter the date in this format YYYY:MM:DD :")
