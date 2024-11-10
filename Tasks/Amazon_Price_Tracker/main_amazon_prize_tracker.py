@@ -4,9 +4,10 @@ Purpose: tracks the items in the amazon if is below the mentioned price sends ma
 """
 # Dependencies
 import os
+import smtplib
+
 import requests
 from bs4 import BeautifulSoup
-import smtplib
 # Add the os and dotenv modules
 from dotenv import load_dotenv
 
@@ -36,7 +37,6 @@ def main() -> None:
     price = float(price_in_tag.getText())
     price_decimal_in_tag = soup.find("span", class_="a-price-fraction")
     price += float(price_decimal_in_tag.getText())/100
-    
     print(f"{ price = } ")
 
     # ====================== Use environment variables ===========================
@@ -48,6 +48,7 @@ def main() -> None:
         with smtplib.SMTP(os.environ["SMTP_ADDRESS"], port=587) as connection:
             connection.starttls()
             result = connection.login(os.environ["EMAIL_ADDRESS"], os.environ["EMAIL_PASSWORD"])
+            print(result)
             connection.sendmail(
                 from_addr=os.environ["EMAIL_ADDRESS"],
                 to_addrs=os.environ["EMAIL_ADDRESS"],
