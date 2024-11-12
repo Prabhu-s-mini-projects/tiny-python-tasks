@@ -27,12 +27,9 @@ def main() -> None:
 
     driver = webdriver.Chrome(options=chrome_options)
 
-    driver.get(url="https://orteil.dashnet.org/cookieclicker/")
+    driver.get(url="http://orteil.dashnet.org/experiments/cookie/")
 
-    # lang_select = driver.find_element(By.ID,"langSelect-EN")
-    # lang_select.click()
-
-    big_cookie = driver.find_element(By.ID, "bigCookie")
+    big_cookie = driver.find_element(By.ID, "cookie")
 
     five_min = time() + 60 * 5
     timeout = time() + 5
@@ -42,18 +39,35 @@ def main() -> None:
 
         if time() > timeout:
             # To do
-            cookies_count = driver.find_element(By.ID, "cookies").text
+            cookies_count = int(driver.find_element(By.ID, "money").text.replace(",", ""))
             print(cookies_count)
 
-            store = driver.find_element(By.ID, "store")
-            print(store)
+            products = driver.find_elements(By.CSS_SELECTOR, "#store b")
+
+            affordable_upgrades = {}
+            for product in products:
+                if "-" in product.text:
+                    cost = int(product.text.split("-")[1].replace(",", ""))
+                    item = {
+                        cost: product
+                    }
+                    if cookies_count > cost:
+                        affordable_upgrades.update(item)
+
+            if affordable_upgrades:
+                print(affordable_upgrades)
+                high_affordable_upgrade = max(affordable_upgrades.keys())
+                product = affordable_upgrades[high_affordable_upgrade]
+                print(product.text)
+
+                product.click()
 
             # Reset time
             timeout = time() + 5
 
-        # After 5 minutes stop the bot and check the cookies per second count.
+        # After 5 minutes, stop the bot and check the cookies per second count.
         if time() > five_min:
-            cookies_per_second = driver.find_element(By.ID, "cookiesPerSecond").text
+            cookies_per_second = driver.find_element(By.ID, "cps").text
             print(f"{ cookies_per_second = } ")
             break
 
