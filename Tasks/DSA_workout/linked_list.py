@@ -218,9 +218,36 @@ class LinkedList:
         # Detaches the node from the list
         remove_node.p_next = None
 
+        # Decrements the count by 1
         self.length -= 1
 
         return remove_node
+
+    def reverse(self) -> None:
+        """ reverse the linked list"""
+        # Swap head and tail
+        temp = self.head
+        self.head = self.tail
+        self.tail = temp
+
+        # Need 3 variables to reverse the link
+        before = None
+        # after = temp.p_next [will be declared inside a loop]
+        # temp = self.head [already declared]
+
+        # Traverse element one by one
+        for _ in range(self.length):
+            # Move after a pointer to temp.next
+            after = temp.p_next
+
+            # Reversing the link
+            temp.p_next = before
+
+            # Move the before pointer to temp
+            before = temp
+
+            # Move the temp pointer to after node
+            temp = after
 
 class DoubleLinkedList:
     """ Class of Doubly LINKED LIST data structure"""
