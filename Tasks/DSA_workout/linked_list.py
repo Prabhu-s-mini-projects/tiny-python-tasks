@@ -1,4 +1,6 @@
 """ The Script contains the implementation one of Data structure (Linked list)"""
+
+
 class Node:
     """Contains that holds data and next pointer"""
 
@@ -50,7 +52,7 @@ class LinkedList:
 
         # Looping until we reach the end of the list
         while temp_pointer:
-            print(f"{temp_pointer.sheet_data}")
+            print(f"{temp_pointer.data}")
             temp_pointer = temp_pointer.p_next
 
     def pop(self) -> Node | None:
@@ -262,75 +264,177 @@ class DoubleLinkedList:
         self.node.p_next = None
         self.node.previous =None
 
-    def append(self,data)-> None:
-        """ add a new element into a list"""
+        # Defining length
+        self.length = 1
 
-        # Looping the end of the list:
-        while self.node.p_next:
-            self.node = self.node.p_next
+    def append(self, data: object) -> None:
+        """ add a new element into a list"""
 
         # Creating a new node
         new_node = Node(data= data)
-        new_node.previous = self.node
-        self.node.p_next = new_node
 
-        self.tail = self.node.p_next
-        self.node = self.head
+        if self.head is None:
+            self.head = new_node
+            self.tail = new_node
 
+        # Moves the tail next to new node(sets the link)
+        self.tail.p_next = new_node
 
-    def print_head_to_tail(self) -> None:
-        """Print all the elements form head to tail"""
+        # Moves the nodes prev to tail (sets the reverse link)
+        new_node.previous = self.tail
 
-        # Creating a temp node for iterating
-        current_node = self.head
-        print(f"{current_node.data}")
+        # Moves the tail to New node(marks the new tail)
+        self.tail = new_node
 
-        # Looping until we reach the end of the list
-        while current_node.p_next:
-            current_node = current_node.p_next
-            print(f"{current_node.sheet_data}")
+        # Increments the length by 1
+        self.length += 1
 
-    def print_tail_to_head(self)-> None:
-        """print all the elements from tail to head"""
+    def pop(self) -> Node | None:
+        """ will return the last element"""
+        # for an empty list
+        if self.length == 0:
+            return None
 
-        #Creating temp node
-        current_node = self.tail
-        print(f"{current_node.data}")
+        # for one or more nodes list
+        pop_node = self.tail
 
-        while current_node.previous:
-            current_node = current_node.previous
-            print(f"{current_node.sheet_data}")
+        if self.length == 1:
+            self.head = None
+            self.tail = None
 
-    def insert_before_node(self, data, target_node:Node)->  None:
-        """
-        Inserts a node before the given node
-        :param data:
-        :param target_node:
-        :return:
-        """
-        # Making sure the first node is not the target_node
-        if self.head != target_node:
+        else:
+            # Moves the tail one node back
+            self.tail = pop_node.previous
 
-            # Looping to all the element in the list
-            while self.node.p_next:
+            # Disconnect the tail link
+            self.tail.p_next = None
 
-                #self.node =  self.node.next
+            # Disconnects the reverse link
+            pop_node.previous = None
 
-                # Making checking current node is target node
-                if self.node.p_next == target_node:
+        # Decrements the length
+        self.length -= 1
 
-                    # Creating a new node
-                    new_node = Node(data=data)
+        return pop_node
 
-                    # Assigning previous and next of target node to newly created node
-                    new_node.previous = self.node
-                    new_node.p_next = self.node.p_next
+    def prepend(self, data: object) -> None:
+        """ will add to the start of the list"""
 
-                    # Updating the current node chain
-                    self.node.previous = new_node
+        # Creates a new Node
+        new_node = Node(data)
 
-                    break
+        # for an empty list
+        if self.length == 0:
 
+            self.head = self.tail = new_node
+
+        else:  # when one or node present
+
+            # Establishing the link (Connects New node next to head)
+            new_node.p_next = self.head
+
+            # Establish the reverse link (Connects head prev to new node)
+            self.head.previous = new_node
+
+            # Moves the head to the new node
+            self.head = new_node
+
+        # Increments the length by 1
+        self.length += 1
+
+    def pop_first(self) -> Node | None:
+        """will return the first element"""
+
+        # Covers empty list scenario
+        if self.length == 0:
+            return None
+
+        # Takes the pop node
+        pop_node = self.head
+
+        # for list with one node
+        if self.length == 1:
+            self.head = self.tail = None
+        else:
+            # for 2 or more nodes
+            self.head = pop_node.p_next
+
+            # Disconnects the link
+            pop_node.p_next = None
+            self.head.previous = None
+
+        self.length -= 1
+
+        return pop_node
+
+    def get(self, index_: int) -> Node | None:
+        """return the node at a given index"""
+        if not 0 <= index_ < self.length:
+            return None
+
+        if index_ < self.length / 2:
+            temp = self.head
+            for _ in range(index_):
+                temp = temp.p_next
+        else:
+            temp = self.tail
+            for _ in range(self.length - 1, index_, -1):
+                temp = temp.previous
+
+        return temp
+
+    def set_value(self, index_: int, data: object) -> None:
+        """ will set the value at a given node"""
+        temp = self.get(index_)
+
+        if temp:
+            temp.data = data
+
+    def insert(self, index_: int, data: object) -> None:
+        """ will add a node at a given index"""
+        temp = self.get(index_)
+
+        if index_ == 0:
+            self.prepend(data)
+        if index_ == self.length - 1:
+            self.append(data)
+        else:
+            new_node = Node(data)
+            # Get the previous node
+            prev_node = temp.previous
+
+            # Disconnect and re-establish the new link prev
+            prev_node.p_next = new_node
+
+            # establish the reverse link on a new node
+            new_node.previous = prev_node
+
+            # Disconnect and re-establish the reverse link of temp node
+            temp.previous = new_node
+
+            # Establishing the link for the new node
+            new_node.p_next = temp
+
+            self.length += 1
+
+    def remove(self, index_: int) -> Node | None:
+        """ will return the element at a given index"""
+        if index_ == 0:
+            return self.pop_first()
+        if index_ == self.length - 1:
+            return self.pop()
+        temp = self.get(index_)
+
+        if temp:
+            before = temp.previous
+            after = temp.p_next
+            before.p_next = after
+            after.previous = before
+            temp.p_next = temp.previous = None
+            self.length -= 1
+            return temp
+
+        return None
 
 def print_in_box(text)-> None:
     """To display a list as per the understanding logical image format"""
@@ -349,22 +453,20 @@ def main()-> None:
     new_linked_list.append(8)
     new_linked_list.append(9)
     new_linked_list.append(10)
-    new_linked_list.print_all_items()
 
-    new_double_linked_list = DoubleLinkedList(data=1)
-    new_double_linked_list.append(data=2)
-    new_double_linked_list.append(data=3)
-    new_double_linked_list.append(data=4)
-    new_double_linked_list.append(data=5)
-    new_double_linked_list.print_head_to_tail()
-    new_double_linked_list.print_tail_to_head()
+    new_double_linked_list = DoubleLinkedList(data='a')
+    new_double_linked_list.append(data='b')
+    new_double_linked_list.append(data='c')
+    new_double_linked_list.append(data='d')
+    new_double_linked_list.append(data='e')
 
-    data =5
-    print(" ______")
-    print(f"|   {data}  |")
-    print("|______|")
+    data = new_double_linked_list.get(2).data
+    print_in_box(str(data))
 
-    print_in_box("5")
+    new_double_linked_list.set_value(2, data=23)
+    data = new_double_linked_list.get(2).data
+
+    print_in_box(str(data))
 
 if __name__ == '__main__':
     main()
