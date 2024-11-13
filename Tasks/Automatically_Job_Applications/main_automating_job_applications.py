@@ -49,7 +49,9 @@ def main() -> None:
 
     time.sleep(2)  # Gives time to load all the login pages
 
-    jobs_tab_xpath = driver.find_element(By.XPATH, '// *[ @ id = "global-nav"] / div / nav / ul / li[3] / a')
+    jobs_tab_xpath = driver.find_element(
+        By.XPATH, '// *[ @ id = "global-nav"] / div / nav / ul / li[3] / a'
+    )
     jobs_tab_xpath.click()
 
     job_search = driver.find_element(By.CSS_SELECTOR, ".jobs-search-box__text-input")
@@ -70,8 +72,12 @@ def main() -> None:
 
     for job in listed_jobs:
         title = job.find_element(By.CSS_SELECTOR, "strong").text
-        company = job.find_element(By.CSS_SELECTOR, ".job-card-container__primary-description").text
-        location = job.find_element(By.CSS_SELECTOR, ".job-card-container__metadata-item > span").text
+        company = job.find_element(
+            By.CSS_SELECTOR, ".job-card-container__primary-description"
+        ).text
+        location = job.find_element(
+            By.CSS_SELECTOR, ".job-card-container__metadata-item > span"
+        ).text
 
         print(f"{company}looking for  {title} in {location} ")
 
