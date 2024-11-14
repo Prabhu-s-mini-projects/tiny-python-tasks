@@ -1,7 +1,9 @@
+"""
+Basic of FLASK framework
+"""
+
 from flask import Flask
-
 app = Flask(__name__)
-
 print(f"{ __name__ = } ")
 
 
