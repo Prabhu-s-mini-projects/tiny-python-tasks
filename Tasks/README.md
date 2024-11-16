@@ -60,6 +60,7 @@ Rules:
 - HTML
   - to unpack a values from json files
   - [Beautiful Soup Documentation](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
+  - [Gify](https://giphy.com)
   
 ## Services:
 
