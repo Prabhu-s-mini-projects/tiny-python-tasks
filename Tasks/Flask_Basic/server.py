@@ -3,7 +3,7 @@ App_Name: server.py
 Purpose: acts as a server for a flask website
 """
 # Dependencies
-from random import random, randint
+from random import randint
 from  flask import  Flask
 # Internal modules
 
