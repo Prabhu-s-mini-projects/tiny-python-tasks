@@ -9,7 +9,7 @@ from Tasks.Design_Patterns.Mediator_Pattern.core_framework.ui_control import UIC
 
 # CONSTANTS
 
-class Button(UIControl):
+class Button(UIControl): # [too-few-public-methods]
     """
     Purpose: Blueprint of UI control Text box
     Attributes:

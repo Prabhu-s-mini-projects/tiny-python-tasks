@@ -29,4 +29,8 @@ class UIControl:
 
     def _get_owner(self) -> None:
         """ To perform: will return Owner dummy method"""
-        pass
+        print(f"{ self.owner = } ")
+
+    def _set_owner(self) -> None:
+        """ To perform: will return Owner dummy method"""
+        print(f"{ self.owner = } ")

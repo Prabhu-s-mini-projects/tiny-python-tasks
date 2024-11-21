@@ -32,15 +32,16 @@ class ArticleDialogBox(DialogBox):
             self.save_button.is_enabled = True
         elif ui_control == self.title_box:
             content = self.title_box.content
-            self.save_button.is_enabled = False if content=="" else True
-    
+            self.save_button.is_enabled = not "" in content
+
     def simulate(self)-> None:
+        """To simulate scenario 1"""
         self.list_box.selection = "selected title"
         print(f"{ self.title_box.content = } ")
         print(f"{ self.save_button.is_enabled = } ")
 
     def simulate_scenario_2(self)-> None:
+        """ To simulate scenario 2"""
         self.title_box.content = ""
         print(f"{ self.title_box.content = } ")
         print(f"{ self.save_button.is_enabled = } ")
-        
