@@ -3,3 +3,6 @@ ignored-modules=turtle
 
 [MASTER]
 init-hook='import sys; sys.path.append(".")'
+
+[MESSAGES CONTROL]
+disable=too-few-public-methods
