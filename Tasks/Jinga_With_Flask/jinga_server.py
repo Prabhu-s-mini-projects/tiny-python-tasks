@@ -35,9 +35,9 @@ def user_name(username: str) -> str:
     Takes user page of my_webapp website
     """
     year = datetime.now().year
-    response = requests.get(url=f"https://api.genderize.io?name={username}")
+    response = requests.get(url=f"https://api.genderize.io?name={username}", timeout=10)
     gender = response.json().get("gender")
-    response = requests.get(url=f"https://api.agify.io?name={username}")
+    response = requests.get(url=f"https://api.agify.io?name={username}", timeout=10)
     age = response.json().get("age")
     return render_template(
         'user.html',
@@ -52,7 +52,7 @@ def user_name(username: str) -> str:
 def blogs(num: int) -> str:
     """Takes you to blog posts """
     print(num)
-    response = requests.get(url="https://api.npoint.io/64c4c05d34812b411e06")
+    response = requests.get(url="https://api.npoint.io/64c4c05d34812b411e06", timeout=10)
     posts = response.json()
     year = datetime.now().year
     return render_template(
