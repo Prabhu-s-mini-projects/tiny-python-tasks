@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blogs</title>
+</head>
+<body>
+{% for post in posts: %}
+{% if post.get("id") == 2 %}
+<h1>{{ post.get("title").title()}}</h1>
+<h2>{{ post.get("subtitle").title()}}</h2>
+<p>{{ post.get("body")}}</p>
+{% endif %}
+{% endfor %}
+
+</body>
+<footer>
+    <p>
+        ©{{current_year}} Built by Prabhukumar Sivamoorthy
+    </p>
+</footer>
+</html>
