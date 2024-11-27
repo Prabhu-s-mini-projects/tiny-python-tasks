@@ -26,7 +26,7 @@ class HashTable:
 
     def __hash_method(self,key: str) -> int:
         """ To perform: will use the hash method"""
-        if isinstance(key) == "str":
+        if isinstance(key,str):
             # for string
             index = 0
             for c in key:
@@ -35,4 +35,5 @@ class HashTable:
                 index = (index + ord(c) * 23)% len(self.map_table)
             print(f"{ index = } ")
             return index
-        raise
+        # if not a type string
+        raise Exception("Invalid Key")
