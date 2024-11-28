@@ -36,4 +36,4 @@ class HashTable:
             print(f"{ index = } ")
             return index
         # if not a type string
-        raise Exception("Invalid Key")
+        raise ValueError("Invalid Key")
