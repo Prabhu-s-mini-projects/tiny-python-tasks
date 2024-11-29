@@ -37,3 +37,7 @@ class HashTable:
             return index
         # if not a type string
         raise ValueError("Invalid Key")
+
+    def get_index(self,key:str)-> int:
+        """will return the index"""
+        return self.__hash_method(key)
