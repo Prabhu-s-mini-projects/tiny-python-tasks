@@ -2,9 +2,17 @@
 AppName:Blog_server
 purpose: will act as a server for upgraded blog
 """
+import os
+import smtplib
+from pathlib import Path
+
 # Dependencies
 import requests
-from flask import Flask, render_template
+from dotenv import load_dotenv
+from flask import Flask, render_template, request
+
+path = Path('/Users/Prabhukumar/Projects/PycharmProjects/tiny-python-tasks/.venv/.env')
+load_dotenv(dotenv_path=path)
 
 # Internal Modules
 app = Flask(__name__)
@@ -51,6 +59,47 @@ def show_post(p_id: int):
         'show_post.html',
         post=i_post
     )
+
+
+@app.route("/login", methods=['POST'])
+def receive_data() -> str:
+    """receive data from contact form"""
+    error = None
+    if request.method == 'POST':
+        name = request.form['name']
+        mail = request.form['mail']
+        message = request.form['message']
+        phone = request.form['phone']
+        details = (f"hi \n This is  {name}\n"
+                   f"contact me @ {mail} or {phone}\n"
+                   f"{message}")
+        send_mail(message=details)
+        message = "Successfully sent the Message"
+    else:
+        message = " data not receviesd"
+    return render_template(
+        "submitted.html",
+        error=error,
+        message=message
+    )
+
+
+def send_mail(message: str) -> None:
+    try:
+        with smtplib.SMTP(os.getenv('SMTP_ADDRESS'), port=587) as connection:
+            connection.starttls()
+            connection.login(
+                user=os.getenv('EMAIL_ADDRESS'),
+                password=os.getenv('EMAIL_PASSWORD')
+            )
+            connection.sendmail(
+                from_addr=os.getenv('EMAIL_ADDRESS'),
+                to_addrs=os.getenv('EMAIL_ADDRESS'),
+                msg=message
+            )
+    except smtplib.SMTPException as e:
+        print(f"Failed to send email : {e}")
+
 
 # ------------------------------------------
 if __name__ == "__main__":

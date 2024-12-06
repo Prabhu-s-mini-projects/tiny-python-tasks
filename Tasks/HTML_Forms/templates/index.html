@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML Forms</title>
+</head>
+<body>
+<h1>HTML FORMS</h1>
+<form action="{{ url_for('login') }}" method="post">
+    <label for="fname">First name:</label>
+    <input id="fname" name="fname" type="text">
+    <label for="lname">Last name:</label>
+    <input id="lname" name="lname" type="text">
+    <button type="submit">Send</button>
+</form>
+
+</body>
+</html>
