@@ -85,6 +85,7 @@ def receive_data() -> str:
 
 
 def send_mail(message: str) -> None:
+    """Sends an email from bot """
     try:
         with smtplib.SMTP(os.getenv('SMTP_ADDRESS'), port=587) as connection:
             connection.starttls()
