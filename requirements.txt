@@ -10,3 +10,7 @@ heroes~=1.0.2
 villains~=1.0.3
 selenium~=4.26.1
 Flask~=3.1.0
+Bootstrap_Flask==2.4.1
+WTForms==3.2.1
+Flask_WTF==1.2.2
+Werkzeug==3.1.3
