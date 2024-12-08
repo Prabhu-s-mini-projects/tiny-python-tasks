@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Display respective section
+    function showSection(sectionId) {
+        // Hide all sections
+        document.querySelectorAll('.right-section-content').forEach(section => {
+            section.classList.add('hidden');
+        });
+
+        // Show the requested section
+        const section = document.getElementById(sectionId);
+        if (section) {
+            section.classList.remove('hidden');
+        }
+    }
+  </script>
+  <style>
+    /* Custom spin animations */
+    .animate-spin-slow {
+        animation: spin 8s linear infinite;
+    }
+
+    .animate-spin-reverse-slow {
+        animation: spin-reverse 10s linear infinite;
+    }
+
+    @keyframes spin {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    @keyframes spin-reverse {
+        from {
+            transform: rotate(360deg);
+        }
+        to {
+            transform: rotate(0deg);
+        }
+    }
+  </style>
+</head>
+<body class="bg-gray-950 text-gray-100 flex flex-col min-h-screen">
+
+<!-- Header -->
+<header class="bg-transparent w-full">
+  <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+    <!-- Logo and Name -->
+    <div class="flex items-center">
+      <img alt="Logo" class="w-10 h-10 mr-4" src="static/your-logo.png">
+      <span class="text-xl font-bold text-gray-200">Prabhukumar Sivamoorthy</span>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="space-x-6">
+      <a class="text-gray-200 hover:text-gray-400 font-medium" href="javascript:showSection('about')">About Me</a>
+      <a class="text-gray-200 hover:text-gray-400 font-medium" href="javascript:showSection('projects')">Projects</a>
+      <a class="text-gray-200 hover:text-gray-400 font-medium" href="javascript:showSection('patterns')">Patterns</a>
+      <a class="text-gray-200 hover:text-gray-400 font-medium" href="javascript:showSection('products')">Products</a>
+      <a class="text-gray-200 hover:text-gray-400 font-medium" href="javascript:showSection('services')">Services</a>
+      <a class="text-gray-200 hover:text-gray-400 font-medium" href="javascript:showSection('work')">Work
+        Experiences</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Main Content -->
+<main class="flex flex-grow">
+  <!-- Left Section: Rotating Ring -->
+  <div class="w-1/2 flex justify-center items-center bg-transparent">
+    <div class="relative w-80 h-80 md:w-96 md:h-96">
+      <!-- Outer Rotating Ring -->
+      <div class="absolute inset-0 animate-spin-slow rounded-full border-[4px] border-dashed border-green-500"></div>
+      <!-- Inner Rotating Ring -->
+      <div class="absolute inset-4 animate-spin-reverse-slow rounded-full border-[3px] border-dotted border-yellow-400"></div>
+      <!-- Centered Image -->
+      <img alt="Profile Image"
+           class="absolute inset-[18px] w-[calc(100%-36px)] h-[calc(100%-36px)] rounded-full object-cover"
+           src="static/your-image.jpg">
+    </div>
+  </div>
+
+  <!-- Right Section: Dynamic Content -->
+  <div class="w-1/2 bg-transparent p-6">
+    <div class="right-section-content" id="about">
+      <h2 class="text-2xl font-bold mb-4">About Me</h2>
+      <p>Hello! I'm Prabhukumar Sivamoorthy, a passionate developer dedicated to building creative and user-friendly
+        solutions. I specialize in full-stack development and enjoy tackling challenges with a mix of creativity and
+        expertise. Let’s collaborate and create something amazing together!</p>
+    </div>
+    <div class="right-section-content hidden" id="projects">
+      <h2 class="text-2xl font-bold mb-4">Projects</h2>
+      <p>This is the Projects section. Add details about your projects here.</p>
+    </div>
+    <div class="right-section-content hidden" id="patterns">
+      <h2 class="text-2xl font-bold mb-4">Patterns</h2>
+      <p>This is the Patterns section. Add details about patterns here.</p>
+    </div>
+    <div class="right-section-content hidden" id="products">
+      <h2 class="text-2xl font-bold mb-4">Products</h2>
+      <p>This is the Products section. Add details about products here.</p>
+    </div>
+    <div class="right-section-content hidden" id="services">
+      <h2 class="text-2xl font-bold mb-4">Services</h2>
+      <p>This is the Services section. Add details about services here.</p>
+    </div>
+    <div class="right-section-content hidden" id="work">
+      <h2 class="text-2xl font-bold mb-4">Work Experiences</h2>
+      <p>This is the Work Experiences section. Add your work experience details here.</p>
+    </div>
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="bg-transparent w-screen py-4">
+  <div class="container mx-auto text-center text-gray-200">
+    <p>&copy; 2024 Prabhukumar Sivamoorthy. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
