@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Display respective section
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.right-section').forEach(section => {
+                section.classList.add('translate-x-full', 'opacity-0');
+                section.classList.remove('slide-in');
+            });
+
+            // Show the requested section with animation
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.classList.remove('translate-x-full', 'opacity-0');
+                section.classList.add('slide-in');
+            }
+        }
+    </script>
+    <style>
+        /* Slide-in animation for the right section */
+        .slide-in {
+            transform: translateX(0);
+            transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+            opacity: 1;
+        }
+
+        .translate-x-full {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+
+        /* Cosmic background */
+        body {
+            background: radial-gradient(circle at top left, #1a1a3f, #000) no-repeat;
+            background-size: cover;
+            overflow: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            width: 300%;
+            height: 300%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+            background-size: 10px 10px;
+            z-index: -1;
+            animation: cosmic-stars 50s linear infinite;
+        }
+
+        @keyframes cosmic-stars {
+            from {
+                transform: translateX(0) translateY(0);
+            }
+            to {
+                transform: translateX(-50%) translateY(-50%);
+            }
+        }
+
+        /* Custom spin animations */
+        .animate-spin-slow {
+            animation: spin 8s linear infinite;
+        }
+
+        .animate-spin-reverse-slow {
+            animation: spin-reverse 10s linear infinite;
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spin-reverse {
+            from {
+                transform: rotate(360deg);
+            }
+            to {
+                transform: rotate(0deg);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-950 text-gray-100 transition duration-300">
+
+<!-- Navbar -->
+<nav class="bg-transparent fixed w-full z-10">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+        <!-- Left Section: Logo and Name -->
+        <div class="flex items-center">
+            <img alt="Logo" class="w-10 h-10 mr-4" src="static/your-logo.png">
+            <span class="text-xl font-bold text-gray-200">YourFirstName YourLastName</span>
+        </div>
+
+        <!-- Right Section: Navigation Links -->
+        <div class="flex items-center space-x-6">
+            <a class="text-gray-200 hover:text-gray-400 font-medium" href="javascript:showSection('project-section')">Projects</a>
+            <a class="text-gray-200 hover:text-gray-400 font-medium" href="javascript:showSection('patterns-section')">Patterns</a>
+            <a class="text-gray-200 hover:text-gray-400 font-medium" href="javascript:showSection('products-section')">Products</a>
+            <a class="text-gray-200 hover:text-gray-400 font-medium" href="javascript:showSection('services-section')">Services</a>
+            <a class="text-gray-200 hover:text-gray-400 font-medium" href="javascript:showSection('work-section')">Work
+                Experiences</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<div class="flex pt-20 h-[calc(100vh-160px)]">
+    <!-- Rotating Ring Section -->
+
+    <div class="flex justify-center items-center flex-grow">
+        <div class="relative w-80 h-80 md:w-96 md:h-96">
+            <!-- Outer Ring: Dashed Green -->
+            <div class="absolute inset-0 animate-spin-slow rounded-full border-[4px] border-dashed border-green-500"></div>
+            <!-- Inner Ring: Dotted Yellow -->
+            <div class="absolute inset-4 animate-spin-reverse-slow rounded-full border-[3px] border-dotted border-yellow-400"></div>
+            <!-- Centered Image with 1pt Padding -->
+            <img alt="Profile Image"
+                 class="absolute inset-[18px] w-[calc(100%-36px)] h-[calc(100%-36px)] rounded-full object-cover"
+                 src="static/your-image.jpg">
+        </div>
+    </div>
+
+
+    <!-- Right Section -->
+    <div class="w-1/3 absolute right-0 translate-x-full opacity-0 right-section bg-gray-800 text-gray-200 p-4 overflow-y-auto">
+        <!-- Project Section -->
+        <div class="absolute opacity-0 translate-x-full" id="project-section">
+            <h2 class="text-2xl font-bold mb-4">Projects</h2>
+            <p>This is the Projects section. Add project details here.</p>
+        </div>
+        <!-- Patterns Section -->
+        <div class="absolute opacity-0 translate-x-full" id="patterns-section">
+            <h2 class="text-2xl font-bold mb-4">Patterns</h2>
+            <p>This is the Patterns section. Add pattern details here.</p>
+        </div>
+        <!-- Products Section -->
+        <div class="absolute opacity-0 translate-x-full" id="products-section">
+            <h2 class="text-2xl font-bold mb-4">Products</h2>
+            <p>This is the Products section. Add product details here.</p>
+        </div>
+        <!-- Services Section -->
+        <div class="absolute opacity-0 translate-x-full" id="services-section">
+            <h2 class="text-2xl font-bold mb-4">Services</h2>
+            <p>This is the Services section. Add service-related details here.</p>
+        </div>
+        <!-- Work Experiences Section -->
+        <div class="absolute opacity-0 translate-x-full" id="work-section">
+            <h2 class="text-2xl font-bold mb-4">Work Experiences</h2>
+            <p>This is the Work Experiences section. Add work experience details here.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-transparent  py-4">
+    <div class="container mx-auto text-center text-gray-200">
+        <p>&copy; 2024 YourFirstName YourLastName. All rights reserved.</p>
+    </div>
+</footer>
+</body>
+</html>
