@@ -13,7 +13,6 @@ from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 class Base(DeclarativeBase):
     """ Base class
     """
-    pass
 
 
 db = SQLAlchemy(model_class=Base)
@@ -27,10 +26,10 @@ db.init_app(app)
 
 class Books(db.Model):
     """ creates table"""
-    id: Mapped[int] = mapped_column(primary_key=True)
-    title: Mapped[str] = mapped_column(String(250), unique=True, nullable=False)
-    author: Mapped[str] = mapped_column(String(250), nullable=False)
-    review: Mapped[float] = mapped_column(Float, nullable=False)
+    ids: Mapped[int] = mapped_column(primary_key=True)
+    titles: Mapped[str] = mapped_column(String(25), unique=True, nullable=False)
+    authors: Mapped[str] = mapped_column(String(250), nullable=False)
+    reviews: Mapped[float] = mapped_column(Float, nullable=False)
 
     def __repr__(self):
         return f'<Book {self.title}>'
@@ -38,15 +37,6 @@ class Books(db.Model):
 
 with app.app_context():
     db.create_all()
-
-
-# # CREATE RECORD
-# with app.app_context():
-#     new_book = Books(id=2, title="Harry", author="J. K. Rowling", review=9.3)
-#     db.session.add(new_book)
-#     db.session.commit()
-#
-
 
 @app.route('/')
 def home() -> str:

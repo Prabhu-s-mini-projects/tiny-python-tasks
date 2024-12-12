@@ -17,13 +17,12 @@ from sqlalchemy import String, Float, ScalarResult
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 
 app = Flask(__name__)
-all_books= []
+all_books = []
 
 
 class Base(DeclarativeBase):
     """ Base class
     """
-    pass
 
 
 db = SQLAlchemy(model_class=Base)
