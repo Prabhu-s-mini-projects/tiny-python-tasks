@@ -88,7 +88,10 @@ class AddMovieForm(FlaskForm):
 # second_movie = Movie(
 #     title="Avatar The Way of Water",
 #     year=2022,
-#     description="Set more than a decade after the events of the first film, learn the story of the Sully family (Jake, Neytiri, and their kids), the trouble that follows them, the lengths they go to keep each other safe, the battles they fight to stay alive, and the tragedies they endure.",
+#     description="Set more than a decade after the events of the first film,
+#     learn the story of the Sully family (Jake, Neytiri, and their kids),
+#     the trouble that follows them, the lengths they go to keep each other safe,
+#     the battles they fight to stay alive, and the tragedies they endure.",
 #     rating=7.3,
 #     ranking=9,
 #     review="I liked the water.",
@@ -101,6 +104,7 @@ class AddMovieForm(FlaskForm):
 #     db.session.commit()
 
 def search_movie(keyword: str) -> object:
+    """Search a movie using API"""
     movie_db_url = os.getenv("MOVIE_DB_API_URL")
     params = {
         "api_key": os.getenv("MOVIE_DATABASE_API_KEY"),
@@ -130,8 +134,8 @@ def add_new_movie(new_movie: Movie) -> None:
 def fetch_movies() -> None:
     """Extracts all the Movies from DB"""
     movies = db.session.execute(db.select(Movie).order_by(Movie.rating)).scalars().all()
-    for i in range(len(movies)):
-        movies[i].ranking = len(movies) - i
+    for index, movie in enumerate(movies):
+        movies[movie].ranking = len(movies) - index
     db.session.commit()
 
     return movies
