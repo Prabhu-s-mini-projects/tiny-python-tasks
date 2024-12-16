@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown on Hover</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            display: flex;
+            background-color: #333;
+            color: white;
+            padding: 0;
+        }
+
+        .nav-item {
+            position: relative; /* Allows the dropdown to position relative to the parent */
+            padding: 15px 20px;
+            cursor: pointer;
+        }
+
+        .nav-item:hover {
+            background-color: #444;
+        }
+
+        /* Dropdown Content */
+        .dropdown {
+            position: relative;
+            top: 100%; /* Place below the nav item */
+            left: 0;
+            width: 100%; /* Span the full width of the navbar */
+            background-color: #555;
+            color: white;
+            display: none; /* Hidden by default */
+            z-index: 1000;
+            padding: 10px 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .dropdown-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .nav-item:hover .dropdown {
+           display: block;  /* Show the dropdown when hovering over the nav item */
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .dropdown-content {
+                padding: 20px;
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="nav-item">
+            Home
+            <div class="dropdown">
+                <div class="dropdown-content">
+                    <p>Welcome to the Home section. Explore more!</p>
+                </div>
+            </div>
+        </div>
+        <div class="nav-item">
+            Services
+            <div class="dropdown">
+                <div class="dropdown-content">
+                    <p>Discover our range of services. Click to learn more.</p>
+                </div>
+            </div>
+        </div>
+        <div class="nav-item">
+            About
+            <div class="dropdown">
+                <div class="dropdown-content">
+                    <p>Learn more about us here.</p>
+                </div>
+            </div>
+        </div>
+        <div class="nav-item">
+            Contact
+            <div class="dropdown">
+                <div class="dropdown-content">
+                    <p>Get in touch with us. We'd love to hear from you!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
