@@ -29,7 +29,7 @@ Rules:
 
 Syntax: dict = {key:value for key, value in dict.items() if condition}
 
-Eg 1: Creating graduated student from all student list 
+Eg 1: Creating graduated student from all student list
 graduated_student = { student: score for student, score in all_students.items() if score > 50 }
 
 

@@ -116,3 +116,17 @@
         background-color: #f8f9fa;
         color: #007bff;
 }
+
+    .list-style {
+        list-style-position: inside; /* Ensures bullets are inside the padding */
+        padding-left: 0; /* Removes default padding */
+        margin: 0; /* Avoid extra margin that could overlap with borders */
+    }
+
+    .list-style li {
+        padding-left: 10px; /* Add space between border and bullets */
+    }
+
+    .col-3, .col-6 {
+        padding-right: 10px; /* Add spacing inside the columns to prevent overlap */
+    }

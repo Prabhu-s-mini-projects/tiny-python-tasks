@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg bg-gradient">
     <div class="container-fluid">
         <a class="navbar-brand  mb-0 h1 d-flex align-items-center" href="{{ url_for('home') }}">
-             <img alt="Logo" height="30" class="me-2" src="/docs/5.3/assets/brand/bootstrap-logo.svg" />
+            <img alt="Logo" class="me-2" height="30" src="/docs/5.3/assets/brand/bootstrap-logo.svg"/>
             <span class="fw-bold">Prabhukumar Sivamoorthy</span>
         </a>
         <!-- Toggle Button for Mobile -->
@@ -48,9 +48,12 @@
                     <!-- Profile Icon -->
                     <div class="dropdown">
 
-                        <a class="nav-link text-white dropdown-toggle d-flex align-items-center" id="profileDropdown" data-bs-toggle="dropdown"
-                           href="{{ url_for('home') }}" id="profileDropdown">
-                            <img alt="Profile" class="rounded-circle me-2" height="40" src="https://via.placeholder.com/40"
+                        <a class="nav-link text-white dropdown-toggle d-flex align-items-center"
+                           data-bs-toggle="dropdown"
+                           href="{{ url_for('home') }}"
+                           id="profileDropdown">
+                            <img alt="Profile" class="rounded-circle me-2" height="40"
+                                 src="https://via.placeholder.com/40"
                                  width="40">
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
@@ -61,7 +64,8 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt me-2"></i><b>P</b>ortal Sign-off</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt me-2"></i><b>P</b>ortal
+                                Sign-off</a></li>
                         </ul>
                     </div>
                 </li>
@@ -75,15 +79,15 @@
     {% include "nav_bar/products.html" %}
 </div>
 <div class="sliding-div" id="Patents">
-  {% include "nav_bar/patents.html" %}
+    {% include "nav_bar/patents.html" %}
 </div>
 <div class="sliding-div" id="Published_Papers">
-  {% include "nav_bar/papers.html" %}
+    {% include "nav_bar/papers.html" %}
 </div>
 <div class="sliding-div" id="Projects">
-   {% include "nav_bar/projects.html" %}
+    {% include "nav_bar/projects.html" %}
 </div>
 <div class="sliding-div" id="Professional">
-  {% include "nav_bar/profession.html" %}
+    {% include "nav_bar/profession.html" %}
 </div>
 
