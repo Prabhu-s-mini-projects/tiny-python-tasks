@@ -13,7 +13,7 @@
         }
 
         .sliding-div.active {
-          max-height: 800px; /* Adjust based on content size */
+          max-height: 1000px; /* Adjust based on content size */
         }
 
         .divider-container {
@@ -25,9 +25,6 @@
           border-radius: 5px;
           overflow: hidden;
         }
-    body {
-      background-color: #f8f9fa;
-    }
 
     .col-4 {
       background-color: #ffffff;

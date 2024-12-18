@@ -1,8 +1,9 @@
-<nav class="navbar navbar-expand-lg bg-gradient">
-    <div class="container-fluid">
+<nav class="navbar bg-transparent navbar-expand-lg ">
+    <div class="container-fluid ">
         <a class="navbar-brand  mb-0 h1 d-flex align-items-center" href="{{ url_for('home') }}">
             <img alt="Logo" class="me-2" height="30" src="/docs/5.3/assets/brand/bootstrap-logo.svg"/>
             <span class="fw-bold">Prabhukumar Sivamoorthy</span>
+
         </a>
         <!-- Toggle Button for Mobile -->
         <button aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
@@ -11,7 +12,7 @@
         </button>
 
         <!-- Navbar Links -->
-        <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="collapse navbar-collapse " id="navbarNav">
             <!-- Me-auto :left align mx-auto: center align and ms-auto for right align -->
             <ul class="navbar-nav justify-content-center flex-grow-1 ">
                 <li class="nav-item dropdown me-3 ms-3">
@@ -88,6 +89,6 @@
     {% include "nav_bar/projects.html" %}
 </div>
 <div class="sliding-div" id="Professional">
-    {% include "nav_bar/profession.html" %}
+
 </div>
 

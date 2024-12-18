@@ -32,20 +32,13 @@
         }
 
         /* Left Section - Glitch Image with B/W and Color Transition */
-        .hero-img-container {
+        .hero-img {
             position: relative;
             width: 300px;
             height: 300px;
-        }
-
-        .hero-img {
-            position: relative;
-            width: 100%;
-            height: 100%;
             background: url('{{url_for('static',filename="/assets/ynbg.png")}}') no-repeat center center/cover;
             filter: grayscale(100%);
             animation: glitch 1.5s infinite, color-transition 4s infinite alternate;
-            z-index: 10;
         }
 
         .hero-img::before,
@@ -69,41 +62,6 @@
         .hero-img::after {
             animation: glitch-bottom 1.5s infinite;
             clip-path: inset(50% 0 0 0);
-        }
-
-        /* Avatar Elements Animation */
-        .avatar-effect {
-            position: absolute;
-            border-radius: 50%;
-            width: 320px;
-            height: 320px;
-            top: -10px;
-            left: -10px;
-            z-index: 5;
-        }
-
-        .fire {
-            border: 3px solid rgba(255, 69, 0, 0.7);
-            box-shadow: 0 0 15px rgba(255, 69, 0, 0.7);
-            animation: rotate 6s linear infinite;
-        }
-
-        .water {
-            border: 3px solid rgba(0, 191, 255, 0.7);
-            box-shadow: 0 0 15px rgba(0, 191, 255, 0.7);
-            animation: rotate 8s linear infinite reverse;
-        }
-
-        .earth {
-            border: 3px solid rgba(34, 139, 34, 0.7);
-            box-shadow: 0 0 15px rgba(34, 139, 34, 0.7);
-            animation: rotate 10s linear infinite;
-        }
-
-        .air {
-            border: 3px solid rgba(255, 255, 255, 0.5);
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
-            animation: rotate 12s linear infinite reverse;
         }
 
         @keyframes glitch {
@@ -133,11 +91,6 @@
         @keyframes color-transition {
             0% { filter: grayscale(100%); }
             100% { filter: grayscale(0%); }
-        }
-
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
         }
 
         /* Right Section - Text */
@@ -179,7 +132,7 @@
                 text-align: center;
             }
 
-            .hero-img-container {
+            .hero-img {
                 margin-bottom: 20px;
             }
         }
@@ -187,14 +140,8 @@
 </head>
 <body>
     <section class="hero">
-        <!-- Left Section: Image with Avatar Effects -->
-        <div class="hero-img-container">
-            <div class="avatar-effect fire"></div>
-            <div class="avatar-effect water"></div>
-            <div class="avatar-effect earth"></div>
-            <div class="avatar-effect air"></div>
-            <div class="hero-img"></div>
-        </div>
+        <!-- Left Section: Image -->
+        <div class="hero-img"></div>
 
         <!-- Right Section: Text and Buttons -->
         <div class="hero-content">
@@ -208,4 +155,3 @@
     </section>
 </body>
 </html>
->
